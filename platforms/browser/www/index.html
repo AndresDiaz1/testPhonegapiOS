@@ -1,0 +1,2507 @@
+<!DOCTYPE html>
+<html>
+	<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1"/>
+    <link href="css/codigos.css?" rel="stylesheet" type="text/css" /> 
+	<link href="css/responsivo.css" rel="stylesheet" type="text/css" />
+	<link href="css/jquery-ui-1.8.21.custom.css" rel="stylesheet" />
+	<link href="css/iniciarSesionStyles.css" rel="stylesheet" type="text/css" /> 
+	<link href="css/alertstyles.css" rel="stylesheet" type="text/css" /> 
+	<link href="css/jquery-confirm.min.css" rel="stylesheet" type="text/css" /> 
+    <link href="css/responsivo.css" rel="stylesheet" type="text/css" /> 
+    <link href="css/estilosNuevos.css" rel="stylesheet" type="text/css" />     
+    <link href="css/autocomplete.css" rel="stylesheet" type="text/css" />
+	<link href="css/estilosmoviles.css" rel="stylesheet" type="text/css" />
+	<!--<link rel="stylesheet" href="logo_sicole.png">-->
+	<link re/Users/andresdiaz/Documents/testPhonegapiOS/www/index.htmll="shortcut icon"  type="image/x-icon" href="si_ico.png" /> 
+	<script src="js/jquery-2.2.1.min.js"></script>
+	<!--<script src="js/jquery-ui.js"></script>-->
+	<!--<script src="js/autocomplete.jquery.js"></script>-->       
+	<script src="js/jquery-ui.js"></script>
+	<script src="js/jquery.form.js"></script>
+	<script src="js/jquery-confirm.min.js"></script>
+	<script src="js/Guiar.js"></script>
+	<script src="js/photo.js"></script>
+	<script src="js/mensaje.js"></script>
+	<script src="js/BpTspSolver.js" type="text/javascript" ></script>
+	<script src="js/markerclusterer.js"></script>  
+	<script src="js/d3.v3.min.js"></script> 
+    <!--<script type="text/javascript" src="http://apicdn.walkscore.com/api/v1/traveltime/js?wsid=8a2fb5b52be7a7c2da9a291288a9f99f"></script>
+    <script type="text/javascript" src="http://apicdn.walkscore.com/api/v1/traveltime_widget/js?wsid=8a2fb5b52be7a7c2da9a291288a9f99f"></script> -->
+
+	<script src="js/cordova.js"></script>
+	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAH7WP7IVk4HIt6mW_MVsKjepXZFg48ews&v=3&libraries=places,visualization" type="text/javascript"></script>
+
+    <script type="text/javascript" src="js/jsapi.js"></script>
+ 	<script src="js/MapController.js"></script>
+	<script src="js/jquery.mobile-1.2.1.js"></script>
+	<script src = "js/jquerymobile-swipeupdown.js"></script>
+	
+	<title>DANE - SICOLE</title>
+</head>
+
+<body>
+	<div id="barrasuperior"></div>
+	<div id="barrainferior">	
+	<p class="textoblancofooter">Departamento Administrativo Nacional de Estadística    © todos los derechos reservados.</p>
+	</div>
+
+	<div id="sicoleimagen">
+		<img id="sicimg" src="imagenes/logo_sicole.png" style="opacity: 0.8; width: 40%;
+    height: auto; margin-left: 30%; position: absolute; top: 50px;"/>
+	</div>
+	
+	<div id="daneimagen">
+		<img id="daneimg" src="imagenes/logo_dane.png" style="opacity: 0.8; width: 20%;
+    margin-left: 40%; bottom: 50px; position: absolute;"/>
+	</div>
+
+	<div id="preaload" style="width: 100%; background-image: url(imagenes/loading.gif); background-color: rgba(0,0,0,0.3); background-repeat: no-repeat; background-position: 50% 50%; position: absolute; z-index: 10000; height: 100%; display: none;">
+	</div>
+    
+    <div id="preaload1" style="width: 100%; background-image: url(imagenes/loading.gif); background-color: rgba(0,0,0,0.3); background-repeat: no-repeat; background-position: 50% 50%; position: absolute; z-index: 10000; height: 100%; display: none;">
+	</div>
+    <!-- Marco de mapa -->
+	
+    <div id='marco' style='width:100%;height:100%; position:absolute; margin:0'></div>
+     
+	<div id = "divMascara">	 
+		<div id = "popupConfirmar">
+			<p> ¿Desea eliminar esta sede del perfil?</p>
+			<div class = "confirmarBotones">
+				<div id = "cancelarEliminar" class = "botonesConfirmar">Cancelar</div>
+				<div id = "confirmarEliminar" class = "botonesConfirmar">Confirmar</div>	
+			</div>
+		</div>
+	</div>	
+    <header id="cabezote" onmouseup= "ocultarBusqueda()">
+        <div id="menuHamburguesa"></div>
+		<div id = "encuestaConectividad" title= "Encuesta conectividad móvil"></div>
+        <div id="logoSicoleHeader"></div>
+    </header>    
+    
+    <div id ="cabezote1"></div>
+    <div id="busquedaPopup" style="height:auto; display:none;">
+        <div id="panel">
+            <div id = "tipoDeBusqueda">
+                <div id = "desplegarBttn"></div>
+                <div id = "logoBusqueda"></div>
+            </div>
+            <div class="autocomplete">
+                <input id="inputBusqueda" class="inputBusqueda" type="text" placeholder="Busque por colegio, barrio o dirección "/> 
+				<input id="inputBusqueda2" class="inputBusqueda" type="text" placeholder="Busque por colegio, barrio o dirección " style="display:none"/> 
+            </div>    
+			
+            <div id= "botongps"></div>    		
+        </div> 
+    
+        <div id= "ventanaTipoBusqueda">
+            <ul>
+                <li id ="busquedaGeoportal"> 
+                    <div class ="imagenTipoBusqueda"></div>
+                    <div class ="textoTipoBusqueda">Búsquedas en Geoportal</div>
+                </li>
+                <li id = "busquedaSicole"> 
+                    <div class ="imagenTipoBusqueda" style = "background-image: url(imagenes/si_ico.png);"></div>
+                    <div class ="textoTipoBusqueda">Búsquedas en Sícole</div>
+                </li>
+            </ul>
+        </div>
+        </div>
+	
+	<!-- Panel para info colegios -->
+
+		<div id="busqueda" style="display:none">
+             <h2>Opciones Avanzadas</h2>
+               <div id="salirFuncionBusqueda" class = "salirFuncionalidades"><p style = "color: white">X</p></div> 
+			   <div id ="contenidoBusqueda"> 
+			   
+                 <div class="opcionesBusqueda">
+				        Código Sede
+			     </div>
+			     <input type="text" name="codigo" id="codigo"/>
+                 <div id="selectores" style = "style="margin-top: 10px;>
+                     <div class = "textoSelectores" >Sector Oficial</div>
+				    <div class="botonRadio">
+					   <input type="checkbox" value="Publico" id="Publico" name="sector">
+					   <label for="Publico"></label>
+				    </div>				
+				    <div class ="textoSelectores" style="margin-left: 7%">Sector No oficial</div>
+				
+                     <div class="botonRadio">
+					   <input type="checkbox" value="Privado" id="Privado" name="sector"/>
+					   <label for="Privado"></label>
+				    </div>				
+			     </div>
+			     <div class="opcionesBusqueda" >
+				    Localidad
+			     </div>		
+                 <div class ="select-style">
+			         <select name="localidad" id="localidad" name="dia">
+                         <option value="0">Seleccione localidad</option>
+                         <option value="1">01-Usaquén</option>
+	                   <option value="2">02-Chapinero</option>
+	                   <option value="3">03-Santa fe</option>
+	                   <option value="4">04-San Cristóbal</option>
+	                   <option value="5">05-Usme</option>
+	                   <option value="6">06-Tunjuelito</option>
+	                   <option value="7">07-Bosa</option>
+	                   <option value="8">08-Kennedy</option>
+	                   <option value="9">09-Fontibón</option>
+	                   <option value="10">10-Engativá</option>
+	                   <option value="11">11-Suba</option>
+	                   <option value="12">12-Barrios Unidos</option>
+	                   <option value="13">13-Teusaquillo</option>
+	                   <option value="14">14-Los Martíres</option>
+	                   <option value="15">15-Antonio Nariño</option>
+	                   <option value="16">16-Puente Aranda</option>
+	                   <option value="17">17-La Candelaria</option>
+	                   <option value="18">18-Rafael Uribe Uribe</option>
+	                   <option value="19">19-Ciudad Bolívar</option>
+	                   <option value="20">20-Sumapaz</option>
+			     </select>
+                 </div>
+			     <div class="opcionesBusqueda" >Barrio</div>
+			     <input type="text" name="barrio" id="barrio"/>
+			     <div class="opcionesBusqueda" style="margin: 7% 0 2% 0; font-size:0.9" >Sexo de la población atendida</div>
+			    
+                 <div id="selectores">
+                     <!--<div class = "textoSelectores" >Masculino</div>-->
+                     <div class = "iconosBusqueda" style = "background-image: url(imagenes/hombre1.png)"></div>
+					 <div class="botonRadio">
+                         <input type="checkbox" value="Masculino" id="Masculino" name="sexo"/>
+                         <label for="Masculino"></label>
+						 
+                     </div>
+                     <div class = "iconosBusqueda"></div>
+				    <div class="botonRadio">
+                        <input type="checkbox" value="Femenino" id="Femenino" name="sexo"/>
+					    <label for="Femenino"></label>
+				    </div>
+					<div class = "iconosBusqueda" style = "background-image: url(imagenes/mixto.png)"></div>
+				    <div class="botonRadio" style = "margin-right: 20%;">
+					   <input type="checkbox" value="Mixto" id="Mixto" name="sexo"/>
+					   <label for="Mixto"></label>
+				    </div>				
+			     </div>
+			         <div id="buscar" class="botonesBusqueda" style="">
+                         <div class= "textoBotonesBusqueda">Buscar</div>
+                    </div>
+			         <div id="limpiar" class="botonesBusqueda" style="margin-left:5%">
+                         <div class= "textoBotonesBusqueda">Limpiar Filtro</div>
+                    </div>
+                 
+        </div>
+    </div>    
+    <div id="menuDesplegableIzq" class = "menusDesplegables"></div>
+    <div id="menuDesplegableDer" class = "menusDesplegables"></div>
+    <div id="menuDesplegableAbajo" class = "menusDesplegables"></div>
+    <div id = "ventanaCategoriasIzq" class = "ventanaCategorias">
+        <div id="botonisocronas"class= "categoria" style="display: none">
+            <img src="imagenes/isocrona.png"/>
+            <div class= "textoCategorias">Isócrona</div>
+        </div>
+        <div id= "botondist" class= "categoria">
+            <img src="imagenes/transporteIco.png"/>
+            <div class= "textoCategorias">Transporte</div>
+        </div>
+        
+        <div id= "botonra" class= "categoria" onclick="ejecutarGuiar();" style="display: none">
+            <img src="imagenes/ra.png"/>
+            <div class= "textoCategorias">Realidad Aumentada</div>
+        </div>
+        
+        <div id= "botonfiltro" class= "categoria">
+            <img src="imagenes/filtros.png"/>
+            <div class= "textoCategorias">Filtros</div>
+        </div>
+        
+        <div id= "botonradar" class= "categoria">
+            <img src="imagenes/cerca.png"/>
+            <div class= "textoCategorias">Cerca a tu sede</div>
+        </div>
+        <div class = "lineaDivisoriaCat"></div>
+		
+		<div id= "botonMapa" class= "categoria">
+            <img src="imagenes/mapas.png"/>
+            <div class= "textoCategorias">Sí - mapas</div>
+        </div>
+		
+    </div>
+    <div id = "ventanaCategoriasDer" class = "ventanaCategorias">
+        <div id= "contenedorColegiosCercanos">
+
+        </div>
+        <!--<div id ='scrollBajar'></div>
+        <div id ='scrollSubir'></div>-->
+    
+    </div>
+    <div id= "ventanaCategoriasAbajo">
+        <div id="botonOficiales" class = "botonesAbajo">
+            <div class="imagenesAbajo"></div>
+            <div class = "textoAbajo">Oficial</div>
+        </div>
+        <div id="botonNoOficiales" class = "botonesAbajo">
+            <div class="imagenesAbajo" style="background-image:url(imagenes/no-oficial.png);"></div>
+            <div class = "textoAbajo">No Oficial</div>
+        </div>
+        <div id="botonTodos" class = "botonesAbajo" style="width: 29%; background-color: #01B4ED; color: white">
+            <div id="imagenAuxiliar" class="imagenesAbajo"></div>
+            <div class = "textoAbajo" style="width:52%">Todos</div>
+            <div id = "imagen2Abajo" class="imagenesAbajo"></div>
+
+        </div>
+        <div id="retraer"></div>
+    </div> 
+    
+		<div id="infocolepar" style="display:none;"></div>
+        <div id = "infoColeEsp">
+            
+            <div id="barraTitulo"><h1>Colegio Súper pedagógico Nuestra Señora de Chiquinquira</h1></div>
+            <div id='MANANA' class='selectores'>
+                <div class= imagenSelectores></div>
+                <div class= letrasSelectores>Mañana</div>
+            </div>
+            <div id='TARDE' class='selectores'>
+                <div class= imagenSelectores style="background-image:url(imagenes/tarded.png)"></div>
+                <div class= letrasSelectores>Tarde</div>
+            </div>
+            <div id='NOCHE' class='selectores'>
+                <div class= imagenSelectores style="background-image:url(imagenes/noched.png)"></div>
+                <div class= letrasSelectores>Noche</div>
+            </div>
+            <div id='FINDESEMANA' class='selectores'>
+                <div class= imagenSelectores style="background-image:url(imagenes/sab-fesd.png)"></div>
+                <div class= letrasSelectores>Fin de Semana</div>
+            </div>
+            <div id='COMPLETA' class='selectores'>
+                <div class= imagenSelectores style="background-image:url(imagenes/completad.png)"></div>
+                <div class= letrasSelectores>Completa</div>
+            </div>
+            <div id ="contenidoInfoCole">
+                
+				<div id = "colegioTitulo">
+					<div id = "tituloIdentificacion" class = "tituloIdenficacion">Identificación</div>
+					<div id = 'colegioFavorito' onclick = 'agregarAFavoritos()'>
+						<div id = 'estrellaColegioFavorito'> </div>
+						<div id= 'agregarColegioFavorito'>Agregar a favoritos</div>
+					</div>
+				</div>
+                <div id= "contenidoIdentificacion" class ="contenidoIdentificacion"></div>
+                    
+                
+                <div id= "contenidoCaracteristicas" class ="contenidoIdentificacion">
+					<div id ="tituloJornadas" class="listasCaracteristicas">
+						<div>Estudiantes por Jornada</div>
+                        <div id="estudiantesJornadas" class ="imagenEstudiantes"></div>   
+                    </div>
+					<div id ="tituloJornadas1" class="listasCaracteristicas" style = "display: none">
+						<div>Estudiantes por Jornada</div>
+                        <div id="estudiantesJornadas1" class ="imagenEstudiantes"></div>   
+                    </div>
+					
+					<div id ="tablaJornadas" class ="tablacarac">
+						<div class = "lineaGraficas"></div>		
+						<div id = "donaJornada" class= "columnaGraficas"></div>
+						<div id = "columnaInfoJornadas" class= "columnaInfo">
+						</div>
+                    </div>
+					
+                    
+                    <div id= "tituloNiveles" class="listasCaracteristicas" style = "margin-top:5%">Estudiantes por Nivel 
+                        <div id="estudiantesNiveles" class ="imagenEstudiantes"></div> 
+                    </div>
+					
+					 <div id= "tituloNiveles1" class="listasCaracteristicas" style = "margin-top:5%; display: none;">Estudiantes por Nivel 
+                        <div id="estudiantesNiveles1" class ="imagenEstudiantes"></div> 
+                    </div>
+					
+					
+					<div id ="tablaNiveles" class ="tablacarac" style = "margin-bottom: 5%; height: 160px">
+						
+					</div>	
+					<div class = "lineaGraficas" style = "margin-top: 5%;"></div>	
+					<svg viewBox="0 0 350 130" id="graficosCaracteristicas">
+						<circle r="45" cx="50" cy="70" id="circle1" class="escogerCircle" fill="#318DA6"></circle>
+						<text x="18" y="55" style="font-size: 0.85rem;" fill="white">Calendario</text>
+						<text id = "calendarioColegio" y="105" x="28.5" style="font-weight: 700; font-size: 3.8rem;" fill="white">A</text>
+						<circle r="45" cx="285" cy="70" id="circle2" class="escogerCircle" fill="#318DA6"></circle>
+						<text y="60" x="262" style="font-size: 1rem;" fill="white">Sector</text>
+						<!--<text id = "sectorColegio"x="245" y="88" style="font-weight: 700; font-size: 1.5rem;" fill="white">Oficial</text>	-->
+						<text id = "sectorColegio"x="245" y="88" style="font-weight: 700; font-size: 1.05rem;" fill="white">No oficial</text>
+					</svg>
+					<div id="caracteristicaSexo">
+						<div id = "textoSexo">Población atendida</div>
+						<div id = "imagenSexo" class= "imagenSexo"></div>
+						<div id = "imagenSexo1" class= "imagenSexo"></div>
+					</div>  
+                </div> 
+                
+                
+                <div id= "contenidoIdentificacion" class ="contenidoIdentificacion">
+                    <!--<div id ="botonAbrirFoto">
+                        <div id= "imagenAbrirFoto"></div>
+                        <div id= "textoAbrirFoto"> Abrir Foto</div>
+                    
+                    </div>-->
+                    <div class = "tituloIdenficacion">Identificación</div>
+                     <div id = "colegioFavorito"></div>
+					<div class = "subtituloIdenficacion">Nombre de Sede:</div>
+                    <p style= "padding-left:0">xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</p>
+                    <div class = "subtituloIdenficacion">Nombre institución educativa:</div>
+                    <p style= "padding-left:0">xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</p>
+                    
+                    <select id="otrasSedes" name="otrasSedes" class="inputAzul" style=" margin-top:6%">
+                        <option value ="">Más Sedes</option>
+                    </select>
+                    <div class ="itemsIdentificacion">
+                        <div class = "subtituloIdenficacion" style="float:left;">Localidad:</div>
+                        <p>xxxxxxxxxxxxxxxxxxxx</p>
+                    </div>
+                    
+                    <div class ="itemsIdentificacion">
+                        <div class = "subtituloIdenficacion" style="float:left;">Barrio:</div>
+                        <p>xxxxxxxxxxxxxxxxxxxx</p>
+                    </div>
+                    
+                    <div class ="itemsIdentificacion">
+                        <div class = "subtituloIdenficacion" style="float:left;">Dirección:</div>
+                        <p>xxxxxxxxxxxxxxxxxxxx</p>
+                    </div>
+                    
+                    <div class ="itemsIdentificacion">
+                        <div class = "subtituloIdenficacion" style="float:left;">Teléfono:</div>
+                        <p>xxxxxxxxxxxxxxxxxxxx</p>
+                    </div>
+                    
+                    <div class ="itemsIdentificacion">
+                        <div class = "subtituloIdenficacion" style="float:left;">E-mail:</div>
+                        <p>xxxxxxxxxxxxxxxxxxxx</p>
+                    </div>
+                    
+                    <div class ="itemsIdentificacion">
+                        <div class = "subtituloIdenficacion" style="float:left; padding-bottom: 6%;">Web:</div>
+                        <p>xxxxxxxxxxxxxxxxxxxx</p>
+                    </div>  
+                    
+                    
+                </div>
+				
+				<div id= "contenidoCalidad" class ="contenidoIdentificacion">
+					<h3>Puntaje Saber 11</h3>
+						<div class = "divBarradeEstado">
+							<div id = "estadoSaber" class = "estadoBarra"> 
+							<p id = "porcentajePrueba">100%</p>
+							</div>
+							<output id ="outputSaber1" style = "margin-left:-25px; margin-top:10px">Mín 0,39</output>
+							<output id ="outputSaber2" style = "margin-left: 35%; margin-top:20px">0,7</output>
+							<div id = "IndicadorTotal" class = "indicadorTotal" style= "margin-top: -71px"></div>
+						</div>
+							<output id ="outputSaber3" style = "margin-top: 18px; margin-left: 78%;">Máx 1</output>
+							<div class = "leyendaBarra" style = "margin-top: 10px;">
+								<div class = "imagenLeyendaBarra" style= "background-color: rgb(182, 19, 78)"></div>
+								<div class = "textoLeyendaBarra">Puntaje promedio Sede</div>
+							</div>
+							
+							<div class = "leyendaBarra">
+								<div class = "imagenLeyendaBarra" style= "background-color: #284D9D"></div>
+								<div class = "textoLeyendaBarra">Puntaje promedio Bogotá/ Soacha </div>
+							</div>
+							<div class="lineaGraficas" style="margin: 5% 0 0 0; border-color: rgb(49, 141, 166);"></div>
+							<p>Clasificación</p>
+							<p id = "clasificacionSaber" style = "font-weight: bold; font-size: 1.2rem; margin-top: -1%;">Medio/Alto</p>
+				</div>
+				<div id= "contenidoCalidad1" class ="contenidoIdentificacion" style= "color: rgb(49, 141, 166); text-align: center; display: block; margin-top: 15%; margin-left: 0%;">Información no encontrada</div>
+				<div id= "contenidoEficiencia" class ="contenidoIdentificacion">
+					<div id = "divcontenedorMulticolor">
+						<center><p id ="errorMulticolor" styel = "display: none">Información no Encontrada</p></center>
+						<div id= "barraMulticolorTotal" class= "barraMulticolor">
+							<div id = "tasaDesercion" class = "seccionMulticolor" style= "background-color:#2C519F"></div>
+							<div id = "tasaReprobacion" class = "seccionMulticolor" style= "background-color:#139064"></div>
+							<div id = "tasaAprobacion" class = "seccionMulticolor" style= "background-color: #5FBEEC"></div>
+							<div id = "tasaTransferencia" class = "seccionMulticolor" style = "background-color:#6351A7;"></div>
+						</div>	
+						<div class= "leyendaMulticolor">
+						<div class = "seccionMulticolor">
+							<svg class="imagenMulticolor" viewBox="0 0 18 18">
+								<circle id = "circuloDesercion" r="9" cy="9" cx="9" fill="#2C519F"></circle>
+							</svg>
+							<div class = "textoMulticolor">
+								<p class = "tituloColor">Deserción</p>
+								<h2 id = "textoDesercion">2%</h2>
+							</div>
+						</div>
+						
+						<div class = "seccionMulticolor">
+							<svg class="imagenMulticolor" viewBox="0 0 18 18">
+								<circle id = "circuloReprobacion" r="9" cy="9" cx="9" fill="#139064"></circle>
+							</svg>
+							<div class = "textoMulticolor">
+								<p class = "tituloColor">Repitencia</p>
+								<h2 id = "textoReprobacion">2%</h2>
+							</div>
+						</div>
+						
+						<div class = "seccionMulticolor">
+							<svg class="imagenMulticolor" viewBox="0 0 18 18">
+								<circle id = "circuloAprobacion" r="9" cy="9" cx="9" fill="#5FBEEC"></circle>
+							</svg>
+							<div class = "textoMulticolor">
+								<p class = "tituloColor">Aprobación</p>
+								<h2 id = "textoAprobacion">2%</h2>
+							</div>
+						</div>
+						
+						<div class = "seccionMulticolor">
+							<svg class="imagenMulticolor" viewBox="0 0 18 18">
+								<circle id = "circuloTransferencia" r="9" cy="9" cx="9" fill="#6351A7"></circle>
+							</svg>
+							<div class = "textoMulticolor">
+								<p class = "tituloColor">Transferencia</p>
+								<h2 id = "textoTransferencia">2%</h2>
+							</div>
+						</div>
+								
+						</div>
+					</div>
+
+				</div>
+				<div id= "contenidoRecursos" class ="contenidoIdentificacion">
+					<h3>Docentes con posgrado</h3>
+					<div id ="docentePosgrado" class ="tablacarac" style = "display:block; color: rgb(95, 190, 236)">	
+						<div id = "textoCon" class = "letrasGraficasRecursos" style = "text-align:right">
+							<div class = "textoDonasRecursos" style = "color: #318DA6">
+								<p id= "docenteConPosgrado" style = "font-size:1rem; font-weight: bold">16-80%</p>
+								<p>Docentes con posgrado</p>	
+							</div>
+						</div>
+						<div id = "donaRecursos" class = "graficasRecursos" style = "color: #318DA6" ></div>
+						<div class = "letrasGraficasRecursos" style = " color: rgb(44, 81, 159)">
+							<div id = "textoSin" class = "textoDonasRecursos" style = "margin-left: 8%; color: #318DA6">
+								<p id = "docenteSinPosgrado" style = "font-size:1rem; font-weight: bold">16-80%</p>
+								<p>Docentes sin posgrado</p>	
+							</div>
+						</div>
+                    </div>
+					<h3>Docentes por estudiante</h3>
+					<div id = "barraPorEstudiantes" class = "divBarradeEstado">
+							<div id = "estudiantesPordocentes" class = "estadoBarra" style= "margin-top:1%"> 
+								<p id = "numeroEstudiantes">48</p>
+							</div>
+							<output id ="outputDocente1" style = "margin-left:-16px">Mín 0</output>
+							<output id ="outputDocente2" style = "margin-left: 39%;">24</output>
+							<div id= "indicadorDocente" class = "indicadorTotal" style = "margin-top: -72px; margin-left:36%"></div>
+						</div>
+							<output id ="outputDocente3" style = "margin-top: 18px; margin-left: 78%;">Máx 48</output>
+							<div class = "leyendaBarra" style = "margin-top: 10px;">
+								<div class = "imagenLeyendaBarra" style= "background-color: rgb(182, 19, 78)"></div>
+								<div class = "textoLeyendaBarra">Promedio Sede</div>
+							</div>
+							<div class = "leyendaBarra">
+								<div class = "imagenLeyendaBarra" style= "background-color: #284D9D"></div>
+								<div class = "textoLeyendaBarra">Promedio Bogotá/ Soacha </div>
+							</div>
+				</div>
+
+                <div id="espacios">
+                    <p><br><br><br><br><br><br><br><br><br></p>
+                    <p><br><br><br><br><br><br><br><br><br></p>
+                    <p><br><br><br><br><br><br><br><br><br></p>
+                </div>
+            </div>
+            <div class='campodetextos'>
+	           <div id='uno' onclick='cargarinfor(1)' class= "botonesInfoColegios">
+                   <img src='imagenes/1.png'/>
+                   <div class ="nombreBoton" style= "border-bottom: 2px solid rgba(182,19,78,1); color: rgba(182,19,78,1);">Identificación</div>
+                </div>
+                
+                <div id='dos' onclick='cargarinfor(2)' class= "botonesInfoColegios">
+                   <img src='imagenes/2.png'/>
+                   <div class ="nombreBoton">Características</div>
+                </div>
+                
+                <div id='tres' onclick='cargarinfor(3)' class= "botonesInfoColegios">
+                   <img src='imagenes/3.png'/>
+                   <div class ="nombreBoton">Calidad</div>
+                </div>
+                
+                <div id='cuatro' onclick='cargarinfor(4)' class= "botonesInfoColegios">
+                   <img src='imagenes/4.png'/>
+                   <div class ="nombreBoton">Eficiencia Interna</div>
+                </div>
+                
+                <div id='cinco' onclick='cargarinfor(5)' class= "botonesInfoColegios">
+                   <img src='imagenes/5.png'/>
+                   <div class ="nombreBoton">Recursos</div>
+                </div>
+                
+	       </div>
+            
+            <div id ="popUpFotoCole">
+                        <div id="ventanaFotoCole">
+                            <div id="botonSalir3" class="botonSalir" style ="display:block">
+			                         <div id= "imagenSalir"></div>
+                            </div>
+                        </div>
+   
+            </div>            
+        </div>
+		
+		<div id="isocronas" style="text-align:center">	
+			<div id="salir4">
+				<p style="margin:auto">X</p>
+			</div>
+			<h1 id = "nombreIsocronas" class = "nombresFuncion">Isócronas</h1>
+			<div id = "isocronasInputs">
+				<p style = "text-align: left; margin-left: 5%;">La ubicación actual es:</p>
+				<input type="text" id="ubicacionIsocrona" class="inputsLogin" name="ubicacionIsocrona" style = " width: 85%; margin-top: -4%;"/>
+				
+				<!--<p style="margin:auto; margin-top:6px; font-size:1.25rem; border-bottom: #52B8DA solid 3px;"> Isócronas </p>-->
+				<div id="sliderisocronas" style="width:100%; height:24%; display:flex; margin-top:2%">
+						<div style="margin:auto;width:86%;height:auto;text-align:center;">						
+							<input id="minutos" type="range" name="points" min="1" max="15" value="10" step="1" onchange="showVal(this.value)"/>
+							<p style=" margin-top:0%; color: rgb(1, 180, 237)"> 10 minutos</p>
+						</div>	
+				</div>	
+				<div id="BotonesIsocrona">		
+					<div id="drive" class="botonesMedio" onclick="modo(1)" style="background-image:url(imagenes/carro1.png)"></div>
+					<div id="bicycle" class="botonesMedio" onclick="modo(2)" style="background-image:url(imagenes/bici2.png)"></div>
+					<div id="caminar" class="botonesMedio" onclick="modo(3)" style="background-image:url(imagenes/camina1.png)"></div>
+				 </div>
+				
+				
+				 <div id = "botonConfirmarIsocronas" class = "botonConfirmar" style = "margin-bottom: 25px;">Confirmar</div>
+				 <div id = "botonPregunta" class = "botonPregunta" style = "margin-top: -56px;">?</div>
+			 </div>
+		</div>
+		<div id="transporteBarra" style="display:none;">
+            <div id = "flechaDespliegueAbajo"></div>
+			<h1 id = "nombreTransporte" class = "nombresFuncion">Transporte</h1>
+			<div id="salirFuncionTransporte" class = "salirFuncionalidades"><p>X</p></div>
+			<div id = "transporteRanges">
+			<div style = "width:auto; margin-top: 30px;">
+			<input type="text" id="desde_distancia" name="desde_distancia" class="inputAzul inputTransporte" placeholder="Origen" required onclick="setUbicacionGeocodigo('marker_origen')">
+			</div>
+			<div id = "marker_origen" class = "ubicadorTransporte2" onclick="setUbicacionGeocodigo('marker_origen');"> </div>
+			<input type="text" id="hasta_distancia" name="hasta_distancia" class="inputAzul inputTransporte"  placeholder = "Destino" required onclick="setUbicacionGeocodigo('marker_destino')">
+			<div id = "marker_destino" class = "ubicadorTransporte2" onclick="setUbicacionGeocodigo('marker_destino')"> </div>
+			<div id="BotonesMedio">		
+				<div id="DRIVING" class="botonesMedio" onclick="setModoRecorrido('DRIVING');" style="background-image:url(imagenes/carro1.png)"></div>
+				<div id="TRANSIT" class="botonesMedio" onclick="setModoRecorrido('TRANSIT');" style="background-image:url(imagenes/bus1.png)"></div>
+				<div id="WALKING" class="botonesMedio" onclick="setModoRecorrido('WALKING');" style="background-image:url(imagenes/camina1.png)"></div>
+			 </div>
+			 <div id = "botonPreguntaTransp" class = "botonPregunta" style = "margin: 0 0 6% 0; text-align: center;">?</div>
+			 <div id = "infocoledistancia"></div>
+			 </div>
+		</div>
+		
+		<div id = "flechaDespliegue"></div>
+		
+		<div id="infocolecerca" style="display:none;">
+			<div id="salirLugaresCercanos" class = "salirFuncionalidades" onclick='Regresar()'><p>X</p></div>
+			<h1 id = "seleccioneSede" style = "text-align: center; margin-bottom: 10px; margin-top: 30px;">Seleccione una sede en el mapa</h1>
+			<div id = "barraCercaAtuSede" class = "categoriasMargen contenedorFuncionalidad">
+				<h1 id = "nombreSedeCerca">Nombre del Colegio</h1>
+				<h1 id = "nombreCercaA" class = "nombresFuncion">Cerca a tu sede</h1>
+				<div id = "distanciaCerca" style = "height: 60px; margin-top: 20px;">
+				<div class = "contenedorLimites">100m</div>
+				<form class = "rangeFiltro" style = "width: 70%">
+					<input type = "range" id = "sliderCerca" name = "sliderCerca" min ="100" max = "2000" value = "1000" style = "width: 100%" onchange = "cambiarRadio()"/>
+						<output id ="outputDistancia" for="rangeCerca" onforminput="value = rangeCerca.valueAsNumber;" style= "margin-left:42%">1.0Km</output>
+				</form>
+				<div class = "contenedorLimites" style = "margin-left: 6%;">2Km</div>
+				</div>
+				<div id = lugaresCercanos>
+					<div class = "contenedorLugares" onClick = "convertirSitios('bank')">
+						<div id= "bankImagen" class = "imagenesLugaresCercanos"></div>
+						<p>Financiero</p>
+					</div>
+					<div class = "contenedorLugares" onClick = "convertirSitios('hospital')">
+						<div id = "hospitalImagen" class = "imagenesLugaresCercanos" style = "background-image: url(imagenes/cerca2.png)"></div>
+						<p>Salud</p>
+					</div>
+					<div class = "contenedorLugares" onClick = "convertirSitios('library')">
+						<div id = "libraryImagen" class = "imagenesLugaresCercanos" style = "background-image: url(imagenes/cerca3.png)"></div>
+						<p>Bibliotecas</p>
+					</div>
+					<div class = "contenedorLugares" onClick = "convertirSitios('church')">
+						<div id = "churchImagen" class = "imagenesLugaresCercanos" style = "background-image: url(imagenes/cerca4.png)"></div>
+						<p>Religioso</p>
+					</div>
+					<div class = "contenedorLugares" onClick = "convertirSitios('storage')">
+						<div id = "storageImagen" class = "imagenesLugaresCercanos" style = "background-image: url(imagenes/cerca5.png)"></div>
+						<p>Comercial</p>
+					</div>
+					<div class = "contenedorLugares" onClick = "convertirSitios('bus_station')">
+						<div id = "bus_stationImagen" class = "imagenesLugaresCercanos" style = "background-image: url(imagenes/cerca6.png)"></div>
+						<p>Transporte</p>
+					</div>
+					<div class = "contenedorLugares" onClick = "convertirSitios('local_government_office')">
+						<div id = "local_government_officeImagen" class = "imagenesLugaresCercanos" style = "background-image: url(imagenes/cerca7.png)"></div>
+						<p>Institucional</p>
+					</div>
+					<div class = "contenedorLugares" onClick = "convertirSitios('park')">
+						<div id = "parkImagen" class = "imagenesLugaresCercanos" style = "background-image: url(imagenes/cerca8.png)"></div>
+						<p>Parques</p>
+					</div>
+					
+				</div>
+				<div id= "auxiliar2" style = "width: 100%; height: auto; position: relative; margin-top: 20px;">
+					<div id = "botonPreguntaCerca" class = "botonPregunta1" style = "text-align: center; margin-bottom: 15px;">?</div>
+				</div>
+			</div>
+		</div>
+    <div id = "barraSesion">
+        <div id="cambiarmapa">
+			<img id="imagenmapa" src="./imagenes/satelital.png" style="height: 100%;float: left;"/>
+			<div id="textonmapa">Mapa Satelital</div>
+		</div>
+        <div id="menuInicial">  
+			<div id="sesion" class="opcionesMenu">Iniciar Sesión</div>
+            <div id ="perfil">
+                <div id ="fotoUsuario"></div>
+                <div id = "textoUsuario">
+                    <p id="nombreUsuario">Nombre</p>
+                    <p id ="rolElegido">Rol Elegido</p>
+                </div>
+            </div>
+
+			<div id="tusede" class="opcionesMenu" style="display:none;">
+				Tu Sede: Cuéntanos
+			</div>		
+            <div id="favoritos" class ="opcionesMenu" style ="display:none">
+                Favoritos
+            </div>    
+			<div id="contacto" class="opcionesMenu" >Contáctenos</div>
+			<div id="ayuda" class="opcionesMenu" style ="display:none">Ayuda</div>
+			<div id="acercade" class="opcionesMenu" >Acerca de</div>
+            <div id="cerrarsesion" class="opcionesMenu" style="display:none">
+				Cerrar Sesión
+			</div>
+        </div>
+		<div id = "divFavoritos">
+			<h1>Favoritos</h1>
+			<div id = "favoritosUsuario"></div>
+            <div id="volver" style="position: relative;">Volver</div>
+            <div id="espacios">
+                <p><br><br><br><br><br></p>
+            </div>
+        </div>
+        <div id="iniciar">
+                <div class="titulo1">
+                    <h1 style="color:#52B8DA; margin-bottom: 0px;">Iniciar Sesión</h1>
+                </div>
+                <div style="margin-top:8%">
+                    <label>Usuario</label>
+                    <input type="text" id="usuario" class="inputsLogin" name="usuario" placeholder="Usuario">
+                </div> 
+                <div style="margin-top: 6%; color:#AAA;">
+                    <label>Contraseña</label>
+                    <input type="password" id="contrasena" class="inputsLogin" name="contrasena" placeholder="Contraseña">
+               </div>
+                <p id="olvidoSuContrasena" style="margin-top: 2px; color:#AAA; display:none">¿Olvidó su contraseña?</p>
+				<h1 id ="botonIniciar" class="botonesIniciar">Iniciar</h1>
+                <h1  id="crearPerfilBoton" class="botonesIniciar">Crear Perfil</h1>
+				<div id="volver7">Volver</div>
+				<div id="espacios">
+		        	<p><br><br><br><br><br></p>
+		        </div>
+        </div>
+        
+        <div id="formularioSesion">
+                <label for="correo">Correo electrónico</label>
+                <input type="email" id="correo" name="correo" class="inputAzul" placeholder="Correo electrónico" required/>
+				<label>Contraseña</label>
+                <input type="password" id="password" class="inputAzul" placeholder="Contraseña"/>
+				<label>Repetir contraseña</label>
+                <input type="password" id="repassword" class="inputAzul" placeholder="Repetir contraseña"/>
+                <label>Nombres</label>
+                <input type="text" id="nombres" class="inputAzul" placeholder="Nombres"/>
+                <label>Apellidos</label>
+                <input type="text" id="apellidos" class="inputAzul" placeholder="Apellidos"/>
+                <label for="tipoDoc" style="width: 100%; float: left;">Documento de identificación</label>
+                <select id="tipoDoc" name="tipoDoc" class="inputAzul">
+                   <option value=1 default> Cédula de ciudadanía</option>
+                    <option value=2> Tarjeta de Identidad</option>
+                    <option value=3> Cédula de extranjería o Identificación de Extranjería</option>
+                    <option value=4> Registro Civil de Nacimiento</option>
+                    <option value=5> Número de Identificación Personal (NIP) </option>
+                     <option value=6> Número Único de Identificación Personal (NUIP) </option>
+                     <option value=7> No de Identificación - Secretaría de Educación </option>
+                    <option value=8> Certificado de Cabildo </option>
+                </select>
+             <label for="tipoDoc">Número de identificación</label>
+              <input type="number" name="numeroDoc" id="numeroDoc" class="inputAzul" />
+                <label for="diaNac" style="width: 100%; float: left;">Fecha de nacimiento</label>
+                
+                <select name="diaNac" id="diaNac" class="inputAzul" style="width:auto; overflow:hidden;float: left;" name="dia">
+	                   <option value="-">Día</option>
+	                   <option value="1">1</option>
+	                   <option value="2">2</option>
+	                   <option value="3">3</option>
+	                   <option value="4">4</option>
+	                   <option value="5">5</option>
+	                   <option value="6">6</option>
+	                   <option value="7">7</option>
+	                   <option value="8">8</option>
+	                   <option value="9">9</option>
+	                   <option value="10">10</option>
+	                   <option value="11">11</option>
+	                   <option value="12">12</option>
+	                   <option value="13">13</option>
+	                   <option value="14">14</option>
+	                   <option value="15">15</option>
+	                   <option value="16">16</option>
+	                   <option value="17">17</option>
+	                   <option value="18">18</option>
+	                   <option value="19">19</option>
+	                   <option value="20">20</option>
+	                   <option value="21">21</option>
+	                   <option value="22">22</option>
+	                   <option value="23">23</option>
+	                   <option value="24">24</option>
+	                   <option value="25">25</option>
+	                   <option value="26">26</option>
+	                   <option value="27">27</option>
+	                   <option value="28">28</option>
+	                   <option value="29">29</option>
+	                   <option value="30">30</option>
+	                   <option value="31">31</option>
+                </select>
+                
+               <select id="mesNac" class="inputAzul" style="width:auto; margin-left:2%;float: left;" name="mes">
+	               <option value="-">Mes</option>
+	               <option value="1">01</option>
+	               <option value="2">02</option>
+	               <option value="3">03</option>
+	               <option value="4">04</option>
+	               <option value="5">05</option>
+	               <option value="6">06</option>
+	               <option value="7">07</option>
+	               <option value="8">08</option>
+	               <option value="9">09</option>
+	               <option value="10">10</option>
+	               <option value="11">11</option>
+	               <option value="12">12</option>
+            </select>
+            
+            <select id="anoNac" class="inputAzul" style="width:auto;  margin-left:2%; float: left;" name="ano">
+				<option value="-">Año</option>
+				<option value="2016">2016</option>
+				<option value="2015">2015</option>
+				<option value="2014">2014</option>
+				<option value="2013">2013</option>
+				<option value="2012">2012</option>
+				<option value="2011">2011</option>
+				<option value="2010">2010</option>
+				<option value="2009">2009</option>
+				<option value="2008">2008</option>
+				<option value="2007">2007</option>
+				<option value="2006">2006</option>
+				<option value="2005">2005</option>
+				<option value="2004">2004</option>
+				<option value="2003">2003</option>
+				<option value="2002">2002</option>
+				<option value="2001">2001</option>
+				<option value="2000">2000</option>
+				<option value="1999">1999</option>
+				<option value="1998">1998</option>
+				<option value="1997">1997</option>
+				<option value="1996">1996</option>
+				<option value="1995">1995</option>
+				<option value="1994">1994</option>
+				<option value="1993">1993</option>
+				<option value="1992">1992</option>
+				<option value="1991">1991</option>
+				<option value="1990">1990</option>
+				<option value="1989">1989</option>
+				<option value="1988">1988</option>
+				<option value="1987">1987</option>
+				<option value="1986">1986</option>
+				<option value="1985">1985</option>
+				<option value="1984">1984</option>
+				<option value="1983">1983</option>
+				<option value="1982">1982</option>
+				<option value="1981">1981</option>
+				<option value="1980">1980</option>
+				<option value="1979">1979</option>
+				<option value="1978">1978</option>
+				<option value="1977">1977</option>
+				<option value="1976">1976</option>
+				<option value="1975">1975</option>
+				<option value="1974">1974</option>
+				<option value="1973">1973</option>
+				<option value="1972">1972</option>
+				<option value="1971">1971</option>
+				<option value="1970">1970</option>
+				<option value="1969">1969</option>
+				<option value="1968">1968</option>
+				<option value="1967">1967</option>
+				<option value="1966">1966</option>
+				<option value="1965">1965</option>
+				<option value="1964">1964</option>
+				<option value="1963">1963</option>
+				<option value="1962">1962</option>
+				<option value="1961">1961</option>
+				<option value="1960">1960</option>
+				<option value="1959">1959</option>
+				<option value="1958">1958</option>
+				<option value="1957">1957</option>
+				<option value="1956">1956</option>
+				<option value="1955">1955</option>
+				<option value="1954">1954</option>
+				<option value="1953">1953</option>
+				<option value="1952">1952</option>
+				<option value="1951">1951</option>
+				<option value="1950">1950</option>
+				<option value="1949">1949</option>
+				<option value="1948">1948</option>
+				<option value="1947">1947</option>
+				<option value="1946">1946</option>
+				<option value="1945">1945</option>
+				<option value="1944">1944</option>
+				<option value="1943">1943</option>
+				<option value="1942">1942</option>
+				<option value="1941">1941</option>
+				<option value="1940">1940</option>
+				<option value="1939">1939</option>
+				<option value="1938">1938</option>
+				<option value="1937">1937</option>
+				<option value="1936">1936</option>
+				<option value="1935">1935</option>
+				<option value="1934">1934</option>
+				<option value="1933">1933</option>
+				<option value="1932">1932</option>
+				<option value="1931">1931</option>
+				<option value="1930">1930</option>
+			</select>
+                
+                
+               <label style="float: left; width: 100%;">Elija un rol</label>
+                <select  id="roles" class="inputAzul">
+                    <option value="1">Directivo</option>
+                    <option value="2">Docente</option>
+                    <option value="3">Administrativo</option>
+                    <option value="4">Padre de Familia/ Acudiente</option>
+                    <option value="5">Estudiante</option>
+                    <option value="6">Investigador</option>
+                    <option value="7">Otros</option>
+                </select>
+            
+				<div class="botonera"  style = "height: auto;"> 
+					<button type="button" id="botonGuardar" class="Guardar2">Guardar y continuar</button>
+				</div>
+                <div class="botonera" >
+				    <button id="volverPerfil" type="button" class="Guardar2"> Cancelar </button>
+			     </div>
+				<div id="espacios">
+		        	<p><br><br><br><br><br></p>
+		        </div>			                
+        </div>
+
+        
+        
+        
+        <div id="formularioSesion">
+                <label for="correo">Correo electrónico</label>
+                <input type="email" id="correo" name="correo" class="inputAzul" placeholder="Correo electrónico" required/>
+                <label>Contraseña</label>
+                <input type="password" id="password" class="inputAzul" placeholder="Contraseña"/>
+				<label>Repetir contraseña</label>
+                <input type="password" id="repassword" class="inputAzul" placeholder="Repetir contraseña"/>
+                <label>Nombres</label>
+                <input type="text" id="nombres" class="inputAzul" placeholder="Nombres"/>
+                <label>Apellidos</label>
+                <input type="text" id="apellidos" class="inputAzul" placeholder="Apellidos"/>
+                <label for="tipoDoc" style="width: 100%; float: left;">Documento de identificación</label>
+                <select id="tipoDoc" name="tipoDoc" class="inputAzul">
+                   <option value=1 default> Cédula de ciudadanía</option>
+                    <option value=2> Tarjeta de Identidad</option>
+                    <option value=3> Cédula de extranjería o Identificación de Extranjería</option>
+                    <option value=4> Registro Civil de Nacimiento</option>
+                    <option value=5> Número de Identificación Personal (NIP) </option>
+                     <option value=6> Número Único de Identificación Personal (NUIP) </option>
+                     <option value=7> No de Identificación - Secretaría de Educación </option>
+                    <option value=8> Certificado de Cabildo </option>
+                </select>
+             <label for="tipoDoc">Número de identificación</label>
+              <input type="number" name="numeroDoc" id="numeroDoc" class="inputAzul" />
+                <label for="diaNac" style="width: 100%; float: left;">Fecha de nacimiento</label>
+                
+                <select name="diaNac" id="diaNac" class="inputAzul" style="width:auto; overflow:hidden;float: left;" name="dia">
+	                   <option value="-">Día</option>
+	                   <option value="1">1</option>
+	                   <option value="2">2</option>
+	                   <option value="3">3</option>
+	                   <option value="4">4</option>
+	                   <option value="5">5</option>
+	                   <option value="6">6</option>
+	                   <option value="7">7</option>
+	                   <option value="8">8</option>
+	                   <option value="9">9</option>
+	                   <option value="10">10</option>
+	                   <option value="11">11</option>
+	                   <option value="12">12</option>
+	                   <option value="13">13</option>
+	                   <option value="14">14</option>
+	                   <option value="15">15</option>
+	                   <option value="16">16</option>
+	                   <option value="17">17</option>
+	                   <option value="18">18</option>
+	                   <option value="19">19</option>
+	                   <option value="20">20</option>
+	                   <option value="21">21</option>
+	                   <option value="22">22</option>
+	                   <option value="23">23</option>
+	                   <option value="24">24</option>
+	                   <option value="25">25</option>
+	                   <option value="26">26</option>
+	                   <option value="27">27</option>
+	                   <option value="28">28</option>
+	                   <option value="29">29</option>
+	                   <option value="30">30</option>
+	                   <option value="31">31</option>
+                </select>
+                
+               <select id="mesNac" class="inputAzul" style="width:auto; margin-left:2%;float: left;" name="mes">
+	               <option value="-">Mes</option>
+	               <option value="1">01</option>
+	               <option value="2">02</option>
+	               <option value="3">03</option>
+	               <option value="4">04</option>
+	               <option value="5">05</option>
+	               <option value="6">06</option>
+	               <option value="7">07</option>
+	               <option value="8">08</option>
+	               <option value="9">09</option>
+	               <option value="10">10</option>
+	               <option value="11">11</option>
+	               <option value="12">12</option>
+            </select>
+            
+            <select id="anoNac" class="inputAzul" style="width:auto;  margin-left:2%; float: left;" name="ano">
+				<option value="-">Año</option>
+				<option value="2016">2016</option>
+				<option value="2015">2015</option>
+				<option value="2014">2014</option>
+				<option value="2013">2013</option>
+				<option value="2012">2012</option>
+				<option value="2011">2011</option>
+				<option value="2010">2010</option>
+				<option value="2009">2009</option>
+				<option value="2008">2008</option>
+				<option value="2007">2007</option>
+				<option value="2006">2006</option>
+				<option value="2005">2005</option>
+				<option value="2004">2004</option>
+				<option value="2003">2003</option>
+				<option value="2002">2002</option>
+				<option value="2001">2001</option>
+				<option value="2000">2000</option>
+				<option value="1999">1999</option>
+				<option value="1998">1998</option>
+				<option value="1997">1997</option>
+				<option value="1996">1996</option>
+				<option value="1995">1995</option>
+				<option value="1994">1994</option>
+				<option value="1993">1993</option>
+				<option value="1992">1992</option>
+				<option value="1991">1991</option>
+				<option value="1990">1990</option>
+				<option value="1989">1989</option>
+				<option value="1988">1988</option>
+				<option value="1987">1987</option>
+				<option value="1986">1986</option>
+				<option value="1985">1985</option>
+				<option value="1984">1984</option>
+				<option value="1983">1983</option>
+				<option value="1982">1982</option>
+				<option value="1981">1981</option>
+				<option value="1980">1980</option>
+				<option value="1979">1979</option>
+				<option value="1978">1978</option>
+				<option value="1977">1977</option>
+				<option value="1976">1976</option>
+				<option value="1975">1975</option>
+				<option value="1974">1974</option>
+				<option value="1973">1973</option>
+				<option value="1972">1972</option>
+				<option value="1971">1971</option>
+				<option value="1970">1970</option>
+				<option value="1969">1969</option>
+				<option value="1968">1968</option>
+				<option value="1967">1967</option>
+				<option value="1966">1966</option>
+				<option value="1965">1965</option>
+				<option value="1964">1964</option>
+				<option value="1963">1963</option>
+				<option value="1962">1962</option>
+				<option value="1961">1961</option>
+				<option value="1960">1960</option>
+				<option value="1959">1959</option>
+				<option value="1958">1958</option>
+				<option value="1957">1957</option>
+				<option value="1956">1956</option>
+				<option value="1955">1955</option>
+				<option value="1954">1954</option>
+				<option value="1953">1953</option>
+				<option value="1952">1952</option>
+				<option value="1951">1951</option>
+				<option value="1950">1950</option>
+				<option value="1949">1949</option>
+				<option value="1948">1948</option>
+				<option value="1947">1947</option>
+				<option value="1946">1946</option>
+				<option value="1945">1945</option>
+				<option value="1944">1944</option>
+				<option value="1943">1943</option>
+				<option value="1942">1942</option>
+				<option value="1941">1941</option>
+				<option value="1940">1940</option>
+				<option value="1939">1939</option>
+				<option value="1938">1938</option>
+				<option value="1937">1937</option>
+				<option value="1936">1936</option>
+				<option value="1935">1935</option>
+				<option value="1934">1934</option>
+				<option value="1933">1933</option>
+				<option value="1932">1932</option>
+				<option value="1931">1931</option>
+				<option value="1930">1930</option>
+			</select>
+                
+                
+               <label style="float: left; width: 100%;">Elija un rol</label>
+                <select  id="roles" class="inputAzul">
+                    <option value="1">Directivo</option>
+                    <option value="2">Docente</option>
+                    <option value="3">Administrativo</option>
+                    <option value="4">Padre de Familia/ Acudiente</option>
+                    <option value="5">Estudiante</option>
+                    <option value="6">Investigador</option>
+                    <option value="7">Otros</option>
+                </select>
+            
+            
+                <div class="botonera" >
+				    <button id="volverPerfil" type="button" class="Guardar2"> Volver </button>
+				    <button type="button" id="botonGuardar" class="Guardar2">Guardar</button>  
+			     </div>
+                <div id="espacios">
+		        	<p><br><br><br><br><br></p>
+		        </div>
+        </div>
+		
+		 <div id="formularioActualizar">
+			<label>Contraseña</label>
+            <input type="password" id="password" class="inputAzul" placeholder="Contraseña"/>
+			<label>Repetir contraseña</label>
+            <input type="password" id="repassword" class="inputAzul" placeholder="Repetir contraseña"/>
+               
+			   <label>Nombres</label>
+                <input type="text" id="nombres" class="inputAzul" placeholder="Nombres"/>
+                <label>Apellidos</label>
+                <input type="text" id="apellidos" class="inputAzul" placeholder="Apellidos"/>
+                <label for="tipoDoc" style="width: 100%; float: left;">N° de identificación</label>
+                <select id="tipoDoc" name="tipoDoc" class="inputAzul" disabled>
+                   <option value="1" default> Cédula de ciudadanía</option>
+                    <option value="2"> Tarjeta de Identidad</option>
+                    <option value="3"> Cédula de extranjería o Identificación de Extranjería</option>
+                    <option value="4"> Registro Civil de Nacimiento</option>
+                    <option value="5"> Número de Identificación Personal (NIP) </option>
+                     <option value="6"> Número Único de Identificación Personal (NUIP) </option>
+                     <option value="7"> No de Identificación - Secretaría de Educación </option>
+                    <option value="8"> Certificado de Cabildo </option>
+                </select>
+                <input type="number" name="numeroDoc" id="numeroDoc" class="inputAzul" style="width: 70%;" disabled/>
+                <label for="diaNac" style="width: 100%; float: left;">Fecha de nacimiento</label>
+                
+                <select name="diaNac" id="diaNac" class="inputAzul" style="width:auto; overflow:hidden;float: left;" name="dia">
+	                   <option value="-">Día</option>
+	                   <option value="01">1</option>
+	                   <option value="02">2</option>
+	                   <option value="03">3</option>
+	                   <option value="04">4</option>
+	                   <option value="05">5</option>
+	                   <option value="06">6</option>
+	                   <option value="07">7</option>
+	                   <option value="08">8</option>
+	                   <option value="09">9</option>
+	                   <option value="10">10</option>
+	                   <option value="11">11</option>
+	                   <option value="12">12</option>
+	                   <option value="13">13</option>
+	                   <option value="14">14</option>
+	                   <option value="15">15</option>
+	                   <option value="16">16</option>
+	                   <option value="17">17</option>
+	                   <option value="18">18</option>
+	                   <option value="19">19</option>
+	                   <option value="20">20</option>
+	                   <option value="21">21</option>
+	                   <option value="22">22</option>
+	                   <option value="23">23</option>
+	                   <option value="24">24</option>
+	                   <option value="25">25</option>
+	                   <option value="26">26</option>
+	                   <option value="27">27</option>
+	                   <option value="28">28</option>
+	                   <option value="29">29</option>
+	                   <option value="30">30</option>
+	                   <option value="31">31</option>
+                </select>
+                
+               <select id="mesNac" class="inputAzul" style="width:auto; margin-left:2%;float: left;" name="mes">
+	               <option value="-">Mes</option>
+	               <option value="01">01</option>
+	               <option value="02">02</option>
+	               <option value="03">03</option>
+	               <option value="04">04</option>
+	               <option value="05">05</option>
+	               <option value="06">06</option>
+	               <option value="07">07</option>
+	               <option value="08">08</option>
+	               <option value="09">09</option>
+	               <option value="10">10</option>
+	               <option value="11">11</option>
+	               <option value="12">12</option>
+            </select>
+            
+            <select id="anoNac" class="inputAzul" style="width:auto;  margin-left:2%; float: left;" name="ano">
+				<option value="-">Año</option>
+				<option value="2016">2016</option>
+				<option value="2015">2015</option>
+				<option value="2014">2014</option>
+				<option value="2013">2013</option>
+				<option value="2012">2012</option>
+				<option value="2011">2011</option>
+				<option value="2010">2010</option>
+				<option value="2009">2009</option>
+				<option value="2008">2008</option>
+				<option value="2007">2007</option>
+				<option value="2006">2006</option>
+				<option value="2005">2005</option>
+				<option value="2004">2004</option>
+				<option value="2003">2003</option>
+				<option value="2002">2002</option>
+				<option value="2001">2001</option>
+				<option value="2000">2000</option>
+				<option value="1999">1999</option>
+				<option value="1998">1998</option>
+				<option value="1997">1997</option>
+				<option value="1996">1996</option>
+				<option value="1995">1995</option>
+				<option value="1994">1994</option>
+				<option value="1993">1993</option>
+				<option value="1992">1992</option>
+				<option value="1991">1991</option>
+				<option value="1990">1990</option>
+				<option value="1989">1989</option>
+				<option value="1988">1988</option>
+				<option value="1987">1987</option>
+				<option value="1986">1986</option>
+				<option value="1985">1985</option>
+				<option value="1984">1984</option>
+				<option value="1983">1983</option>
+				<option value="1982">1982</option>
+				<option value="1981">1981</option>
+				<option value="1980">1980</option>
+				<option value="1979">1979</option>
+				<option value="1978">1978</option>
+				<option value="1977">1977</option>
+				<option value="1976">1976</option>
+				<option value="1975">1975</option>
+				<option value="1974">1974</option>
+				<option value="1973">1973</option>
+				<option value="1972">1972</option>
+				<option value="1971">1971</option>
+				<option value="1970">1970</option>
+				<option value="1969">1969</option>
+				<option value="1968">1968</option>
+				<option value="1967">1967</option>
+				<option value="1966">1966</option>
+				<option value="1965">1965</option>
+				<option value="1964">1964</option>
+				<option value="1963">1963</option>
+				<option value="1962">1962</option>
+				<option value="1961">1961</option>
+				<option value="1960">1960</option>
+				<option value="1959">1959</option>
+				<option value="1958">1958</option>
+				<option value="1957">1957</option>
+				<option value="1956">1956</option>
+				<option value="1955">1955</option>
+				<option value="1954">1954</option>
+				<option value="1953">1953</option>
+				<option value="1952">1952</option>
+				<option value="1951">1951</option>
+				<option value="1950">1950</option>
+				<option value="1949">1949</option>
+				<option value="1948">1948</option>
+				<option value="1947">1947</option>
+				<option value="1946">1946</option>
+				<option value="1945">1945</option>
+				<option value="1944">1944</option>
+				<option value="1943">1943</option>
+				<option value="1942">1942</option>
+				<option value="1941">1941</option>
+				<option value="1940">1940</option>
+				<option value="1939">1939</option>
+				<option value="1938">1938</option>
+				<option value="1937">1937</option>
+				<option value="1936">1936</option>
+				<option value="1935">1935</option>
+				<option value="1934">1934</option>
+				<option value="1933">1933</option>
+				<option value="1932">1932</option>
+				<option value="1931">1931</option>
+				<option value="1930">1930</option>
+
+			</select>                
+                
+		    <label style="float: left; width: 100%;">Elija un rol</label>
+			<select  id="roles" class="inputAzul">
+				<option value="1">Directivo</option>
+				<option value="2">Docente</option>
+				<option value="3">Administrativo</option>
+				<option value="4">Padre de Familia/ Acudiente</option>
+				<option value="5">Estudiante</option>
+				<option value="6">Investigador</option>
+				<option value="7">Otros</option>
+			</select>
+			<div class="botonera" >	
+				<button type="button" id="botonActualizar" class="Guardar2">Actualizar</button>  
+			</div>
+			<div class="botonera" >
+				<button id="volverPerfil2" type="button" class="Guardar2"> Volver </button>
+			 </div>
+			<div id="espacios">
+	        	<p><br><br><br><br><br></p>
+	        </div>
+        </div>
+			
+		<!-- Cargar Foto y Redes - Registro -->
+			
+		<div id="seccionFoto" class="seccionFoto">
+			<div class="titulo1">
+			   <h1 id="tituloNombre" style = " color: #52B8DA;"></h1>                 
+			</div>
+			<div id="masInformacion">		
+				<form id="form" action="http://geoportal.dane.gov.co/wssicole/cargue/uploadphp.php" method="post" enctype="multipart/form-data">
+					<div id="fotoUsuarioMask" class="fotoUsuario" style="opacity:1"></div>
+					<input id="file" class="fotoUsuario" type="file" name="file"/>
+					<input id="nombre" type="hidden" name="nombre"/>
+					<div id="emergenteImagen">
+						<div id="preview">
+						</div>
+							
+						</div>
+				    <input type="submit" id="botonload" name="submit" value="Subir"/>
+				</form> 				
+				<div id="infoUsuario">                
+					<div id="actualizarInformacion" >
+						<img id="ImagenActualizar2" src="imagenes/actualizar.png" width="30px"/>
+						<h3>Actualizar datos</h3>
+					</div>	
+				</div>
+			</div>			
+			<div id="sedes">
+				<div id="borde"></div>    
+				<h1>Sedes de interés</h1>
+                <div id="sedesAgregadas">
+				</div>
+				<div id="buscarSede">
+					<img style="position:relative; float:left;" src="imagenes/sedes.png" width="36px"/>
+					<p>Agregar Nueva Sede</p>
+				</div>     
+			</div>
+			
+			<div id="redes">
+				<div class = "contenedorredesEsp">
+					<div class="imagenredes" style="background-image:url(imagenes/telefono.png)"></div>
+					<p class="nombre2">Teléfono</p>
+					<p class="agregar">Agregar
+						<img class="imagenActualizar"src="imagenes/actualizar.png" width="7%"/>
+					</p>
+				</div>	
+				<div class = "contenedorredesEsp">
+					<div class="imagenredes"></div>
+					<p class="nombre2">Facebook</p>
+					<p class="agregar">Agregar
+						<img class="imagenActualizar"src="imagenes/actualizar.png" width="7%"/>
+					</p>
+				</div>	
+				
+				<div class = "contenedorredesEsp">
+					<div class="imagenredes" style="background-image:url(imagenes/twitter.png)"></div>
+					<p class="nombre2">Twitter</p>
+					<p class="agregar">Agregar
+						<img class="imagenActualizar"src="imagenes/actualizar.png" width="7%"/>
+					</p>
+				</div>
+				
+				<div class = "contenedorredesEsp">
+					<div class="imagenredes" style="background-image:url(imagenes/linkedin.png)"></div>
+					<p class="nombre2">Linkedin</p>
+					<p class="agregar">Agregar
+						<img class="imagenActualizar"src="imagenes/actualizar.png" width="7%"/>
+					</p>
+				</div>	
+			</div>
+			<div class="botonera" >
+				 <button type="button" id="botonGrabar" class="Guardar2">Guardar</button>  
+			</div>	 
+			
+			<div class="botonera" >
+				<button id="volver2" type="button" class="Guardar2" style = "margin-bottom: 30px;" > Volver </button>
+			</div>
+			<div id="espacios">
+	        	<p><br><br><br><br><br></p>
+	        </div>		
+			
+			<!--button id="botonGrabar">Crear Usuario</button>
+			<div id="volver2" style="margin-top:8%">Volver</div-->
+		</div> 
+		
+		<!--  Agregar Sede  -->
+		
+		<div  id="agregarSede" class="subventana">   
+           <div class="titulo1" style="height:40px; margin-top: 12%">
+			   <h1 id="tituloNombre"> Agregar nueva sede</h1>                 
+			</div>
+            <label>Nombre de la sede</label>
+			<input type="text" id="busquedacolegio" class="inputAzul" name="busquedacolegio" placeholder="Escriba el nombre de la sede">         
+            <div id="contenedorSedes"> 
+            </div>
+			<div id = "favoritosSede">
+				<p>Favoritos</p>
+			</div>
+			<div id = "contenedorFavoritos" style = "height: 55%; overflow-y: scroll;"></div>
+			<div class="botonera"  style = "margin-top:5%">
+				 <button type="button" id="cancelarSede" class="Guardar2">Cancelar</button>  
+			</div>	 
+        </div>
+		
+        <div  id="contenedorJornadas" class="subventana" style="margin:10% 0 0 0; width:100%">  
+			
+			<div id="contenedorHorarios">
+					<h1>esto es un colegio</h1>
+					<div id = "ContenidoManana" class = "checkbox2">	
+						<div class="squaredOne">
+							<input type="checkbox" value="manana" id="manana" name="manana" disabled = "true"/>
+							<label for="manana"></label>
+						</div>
+						<div class = "textoCheck">Mañana</div>		
+					</div>	
+					
+		
+					<div id = "ContenidoTarde" class = "checkbox2">		
+						<div class="squaredOne"> 
+							<input type="checkbox" id="tarde" name="tarde" value="tarde" disabled = "true"/>
+							<label for = "tarde" ></label>
+						</div> 
+						<div class = "textoCheck">Tarde</div>
+					</div>
+					
+					<div id = "ContenidoNoche" class = "checkbox2">
+						<div class="squaredOne"> 
+							<input type="checkbox" name="noche" value="noche" id = "noche" disabled = "true"/>
+							<label for = "noche" ></label>
+						</div> 
+						<div class = "textoCheck">Noche</div>
+					</div>
+					
+					<div id = "ContenidoFestivo" class = "checkbox2">
+						<div class="squaredOne"> 
+							<input type="checkbox" name="festivos" value="festivos" id ="festivos" disabled = "true"/>
+							<label  for="festivos"></label>
+						</div> 
+						<div class = "textoCheck">Fines de semana y festivos</div>
+					</div>
+					
+					<div class = "checkbox2" id = "ContenidoCompleta">
+						<div class="squaredOne">
+							<input type="checkbox" value="completa" id="completa" name="completa" disabled = "true"/>
+							<label for="completa"></label>
+						</div>  
+						<div class = "textoCheck">Completa</div>
+					</div>
+			</div>     
+		<div class="botonera"  style = "margin-top:25%">
+				 <button type="button" id="GuardarJornada" class="Guardar">Guardar</button>  
+			</div>	 
+			
+			<div class="botonera" >
+				<button id="volverJornada" type="button" class="Guardar"> Volver </button>
+			</div>	
+        </div>
+		
+		
+		
+		
+		<!--  Perfil  -->
+		
+		
+		<div id="seccionPerfil" class="seccionFoto" style="margin-top:12%; overflow-y: auto">
+			<div class="titulo1" style="height:50px">
+			   <h1 style="margin-top: 4px;font-size:2rem;margin-bottom: 0px;color: #52B8DA;" id="tituloNombre"></h1>                 
+			</div>
+			<div id="masInformacion">		
+				<form id="form1" action="http://geoportal.dane.gov.co/wssicole/cargue/uploadphp.php" method="post" enctype="multipart/form-data">
+					<div id="fotoUsuarioMask" class="fotoUsuario" style="opacity:1"></div>
+					<input id="file2" class="fotoUsuario" type="file" name="file2">
+					<input id="nombre" type="hidden" name="nombre"/>
+					
+				<input type="submit" id="botonload" name="submit" value="Subir"/>
+				</form> 
+
+				
+			<div id="infoUsuario">                
+				<div id="actualizarInformacion">
+					<img id="ImagenActualizar2" src="imagenes/actualizar.png" width="30px"/>
+					<h3>Actualizar datos</h3>
+				</div>	
+			</div>
+			</div>
+			<div id="sedes">
+				<div id="borde"></div>    
+				<h1>Sedes donde estudias o trabajas:</h1>
+                <div id="sedesAgregadasPerfil"></div>
+				<div id="buscarSede">
+					<img style="position:relative; float:left;" src="imagenes/sedes.png" width="36px"/>
+					<p>Agregar Nueva Sede</p>
+				</div>            
+			</div>
+			<div id="redes" style="margin-top:5%">
+				<div class="imagenredes" style="background-image:url(imagenes/telefono.png)"></div>
+				<p class="nombre2">Teléfono</p>
+				<p class="agregar">Agregar
+				<img class="imagenActualizar"src="imagenes/actualizar.png"/>
+				</p>
+				
+				<div class="imagenredes"></div>
+				<p class="nombre2">Facebook</p>
+				<p class="agregar">Agregar
+				<img class="imagenActualizar"src="imagenes/actualizar.png"/>
+				</p>
+				
+				<div class="imagenredes" style="background-image:url(imagenes/twitter.png)"></div>
+				<p class="nombre2">Twitter</p>
+				<p class="agregar">Agregar
+				<img class="imagenActualizar"src="imagenes/actualizar.png" />
+				</p>
+				
+			<div class="imagenredes" style="background-image:url(imagenes/linkedin.png)"></div>
+				<p class="nombre2">LinkedIn</p>
+				<p class="agregar">Agregar
+				<img class="imagenActualizar"src="imagenes/actualizar.png"/>
+				</p>
+			</div>
+            <div class="botonera"  style="margin-top:7%">
+				<button id="grabarPerfil" type="button" class="Guardar2"> Guardar </button> 
+			</div>
+			<div class="botonera"  style="margin-top: 5%; margin-bottom: 7%;">
+				<button id="volver6" type="button" class="Guardar2" style = "margin-bottom: 30px;" > Volver </button> 
+			</div>
+			<div id="espacios">
+	        	<p><br><br><br><br><br></p>
+	        </div>
+		</div>
+		
+		
+		
+		
+		
+		
+
+		<div id="sedeCuentanos" class="subventana">
+            <div class="titulo2">
+                <h1 style="margin-top:-1px;margin-left:10%">Tu sede: Cuéntanos</h1>
+                <div class="linea" style="margin-left:10%"></div>
+            </div>
+            <div id="menuGrafico" class="menuGrafico">
+                <div id="infraestructura" class="opcionesMenu1">
+                    <div class="imagenMenuGrafico"></div>
+                    <div class="contenedorNombre">
+                        <h1>Infraestructura</h1>
+                    </div>    
+                </div>
+                <!--div id="infraestructuraMask" class="opcionesMenu1Mask"></div-->
+                
+                <div id="dotacion" class="opcionesMenu1">
+                    <div class="imagenMenuGrafico" style="background-image: url(imagenes/dotacion.png);"></div>
+                    <div class="contenedorNombre">
+                        <h1>Dotación</h1>
+                    </div>    
+                </div>
+                                
+                
+                <div id="convivencia" class="opcionesMenu1">
+                    <div class="imagenMenuGrafico" style="background-image: url(imagenes/convivencia.png);"></div>
+                    <div class="contenedorNombre">
+                        <h1>Clima Escolar</h1>
+                    </div>    
+                </div>
+                    
+                <div id="asistencia" class="opcionesMenu1">
+                    <div class="imagenMenuGrafico" style="background-image: url(imagenes/asistencia.png);"></div>
+                    <div class="contenedorNombre">
+                        <h1>Asistencia docente</h1>
+                    </div>    
+                </div>
+                
+                
+                <div id="transporteMenu" class="opcionesMenu1" >
+                    <div class="imagenMenuGrafico" style="background-image: url(imagenes/transp.png); background-size: auto 80%"></div>
+                    <div class="contenedorNombre">
+                        <h1>Transporte</h1>
+                    </div>    
+                </div>
+				 <div id="movilMenu" class="opcionesMenu1" >
+                    <div  class="imagenMenuGrafico" style="background-image: url(imagenes/conectividad.png); background-size: auto 80% "></div>
+					<div class="contenedorNombre">
+                        <h1>Conectividad móvil</h1>
+                    </div> 
+                </div>
+				
+				 <div id="retornar" class="opcionesMenu1" >
+                    <div class="imagenMenuGrafico" style="background-image: url(imagenes/triangulovolver.png);"></div>
+					<div class="contenedorNombre">
+                        <h1>Volver</h1>
+                    </div> 
+                    <div id="espacios">
+			        	<p><br><br><br><br><br></p>
+			        </div>
+                </div>					
+            </div>
+        </div>
+
+		<div id="encabezadoInstitucion" class="subventana" style="height: auto; margin-top:20%">
+     
+			<div id="encabezado" class="titulo2">
+                <h1 style="margin-top:-1px"></h1>
+            </div>    
+            <div id = "sedeEncuesta">
+                <label for="nombreSede">Nombre de la sede</label>
+                <select type="text" id="nombreSede" class="inputAzul" name="nombreSede">
+				</select>
+            </div>
+			
+        </div>    
+
+	    <form id="infraestructuraVentana" class="subventana" style="height:60%">
+            <div class="radioButtons">
+                <input id="urbano" type="radio" name="categoria" value="U" required>
+                <label for="urbano">Urbano</label>
+                <input id="rural" type="radio" name="categoria" value="R" required>
+                <label for="rural">Rural</label>       
+            </div>    
+    
+            <div class="listas">
+                <label for="propiedadLote">Propiedad Lote</label>
+                <select id="propiedadLote" name="propiedad_lote" class="inputAzul" style="cursor:pointer;" required>
+                    <option value="1" default>Nación</option>
+                    <option value="2">Departamento</option>
+                    <option value="3">Distrito</option>
+                    <option value="4">Municipio</option>
+                    <option value="5">No definido o se desconoce</option>
+                    <option value="6">Otros</option>
+                </select>
+            </div>
+            <div class="listas">
+                <label>Propiedad Edificación</label>
+                <select id="propiedadEdificacion" name="propiedad_edifica" class="inputAzul" style="cursor:pointer">
+                   <option value="1" default>Persona natural o sociedad</option>
+                    <option value="2">Comunidad religiosa</option>
+                    <option value="3">Asociación de padres de familia</option>
+                    <option value="4">Cooperativa</option>
+                    <option value="5">Otra</option>
+                </select>
+            </div>
+            <div class="listas">
+                <label >No de Bibliotecas Centrales</label>
+                <!--<select id="bibliotecaCentral" name="biblioteca_central" class="inputAzul" style="cursor:pointer">
+                   <option value="1" default>1</option>
+                    <option value="NO">No</option>
+                </select>-->
+                <input type="number" value=0 min="o" max="20" id="bibliotecaCentral" class="inputAzul" style = "width:22%; margin-left:8%"/>
+            </div>
+            <div class="listas">
+                <label>No de Bibliotecas por Aula</label>
+                <!--<select id="bibliotecaAula" name="biblioteca_aula" class="inputAzul" style="cursor:pointer">
+                   <option value="SI" default>Sí</option>
+                    <option value="NO"> No</option>
+                </select>-->
+                
+                <input type="number" min="o" max="20" value="0" id="bibliotecaAula" class="inputAzul" style="margin-left:39px; width:22%"/>
+            </div>
+			 <div class="botonera"  style = "margin-top: 4%">
+				 <button type="button" id="GuardarInfraestructura" class="Guardar2">Enviar respuesta</button>  
+			</div>
+			<div class="botonera"  style = "margin-top: 10px; margin-bottom:2%">
+				    <button type="button"  class="Guardar2 volverMenu">Volver</button>	
+			</div>
+			<div id="espacios">
+	        	<p><br><br><br><br><br></p>
+	        </div>
+		</form>
+	<div id = "avisoConvivencia">
+		<p id = "mensajeError">Hola amigos</p>
+		<div class="botonera"  style = "margin-top: 10px; margin-bottom:2%">
+			<button type="button" class="Guardar2 volverMenu">Volver</button>	
+		</div>
+		<div class="botonera"  style = "margin-top: 10px; margin-bottom:2%">
+			<button id = "irAPerfil" type="button" class="Guardar2">Ir a perfil</button>	
+		</div>
+	</div>
+    <form id="convivenciaEscolar" class="subventana" style="margin-top:2%; height:100%">
+			<div id="convivenciaEncuesta" class="encuesta"style= "height: 81%">
+				<p style = "font-size:0.8rem">El propósito de esta encuesta es poder conocer acerca del clima escolar de tu colegio, con el fin de poder generar información que pueda ser utilizada por los directores y maestros para mejorar la convivencia y el ambiente escolar. Tus respuestas son confidenciales. Gracias por acceder a completarla.</p>
+                <h2>Seguridad y confianza</h2>
+				<p>¿Existe un ambiente agradable y de sana convivencia en tu colegio?</p>
+                
+				<div>
+                    <input id="seguridad1Si" type="radio" name="seguridad1" value="1" onchange = "comprobarConvivencia()" required/>
+					<label for="seguridad1">Sí</label>
+					 <input id="seguridad1No" type="radio" name="seguridad1" value="0" onchange = "comprobarConvivencia()" required/>
+                    <label for="seguridad1No">No</label>
+                </div>  
+                <p>¿Te sientes seguro en tu colegio?</p>
+                <div>
+					<input id="seguridad2Si" type="radio" name="seguridad2" value="1" onchange = "comprobarConvivencia()" required/>
+                    <label for="seguridad2Si">Sí</label>
+					<input id="seguridad2No" type="radio" name="seguridad2" value="0" onchange = "comprobarConvivencia()" required/>
+                    <label for="seguridad2No">No</label>
+                </div>
+				
+				<h2>Agresividad y acoso</h2>
+                <p>La semana pasada alguien de tu colegio</p>
+				<div style = "width: 100%; height: 25px">
+					<div id = "agresividad1" class = "checkbox2" style="width: auto; height:auto; float:left">	
+						<div class="squaredOne">
+							<input type="checkbox" value="manoteo" id="manoteo" name="manoteo"/>
+							<label for="manoteo"></label>
+						</div>	
+					</div>
+					<p style = "float: left; margin: 0px 0 0 10px;">de tu curso</p>
+					
+					<div id = "agresividad2" class = "checkbox2" style="width: auto; height:auto; float:left; margin: 0px 0 0 10px;">	
+						<div class="squaredOne">
+							<input type="checkbox" value="manoteo" id="manoteoOtro" name="manoteoOtro"/>
+							<label for="manoteoOtro"></label>
+						</div>	
+					</div>
+					<p style = "float: left; margin: 0px 0 0 10px;">de otro curso</p>	
+				</div>
+				
+				
+				<div style = "width: 100%">
+				<p style = "margin-bottom: 6px">¿Te insultó haciéndote sentir mal?</p> 	
+				<select id="agresividad3" name="agresividad3" class="inputAzul" style="cursor:pointer;" onchange ="ningunaVez(this.id)" required>
+                   <option value="1" default>Ninguna vez</option>
+                    <option value="2">Una vez</option>
+                    <option value="3">De 2 a 4 veces</option>
+                    <option value="4">5 o más veces</option>
+                </select>	
+				</div>
+				<p style = "margin: 2px 0 6px 0">¿Lo hace repetidamente?</p>
+				<div>
+                    <label for="agresividad4Si">Sí</label>
+					<input id="agresividad4Si" type="radio" name="agresividad4" value="1" required/>
+                    <label for="agresividad4No">No</label>
+                    <input id="agresividad4No" type="radio" name="agresividad4" value="0" required checked/>
+                </div>
+				
+				<div style = "width: 100%">
+				<p style = "margin-bottom: 6px">¿Amenazó con pegarte?</p> 	
+				<select id="agresividad5" name="agresividad5" class="inputAzul" style="cursor:pointer;" onchange ="ningunaVez(this.id)" required>
+                   <option value="1" default>Ninguna vez</option>
+                    <option value="2">Una vez</option>
+                    <option value="3">De 2 a 4 veces</option>
+                    <option value="4">5 o más veces</option>
+                </select>	
+				</div>
+				<p style = "margin: 2px 0 6px 0">¿Lo hace repetidamente?</p>
+				<div>
+                    <label for="agresividad6Si">Sí</label>
+					<input id="agresividad6Si" type="radio" name="agresividad6" value="1" required/>
+                    <label for="agresividad6No">No</label>
+                    <input id="agresividad6No" type="radio" name="agresividad6" value="0" required checked/>
+                </div>
+				
+				<p style = "margin-bottom: 6px">¿Te hizo daño intencionalmente dándote golpes?</p> 	
+				<select id="agresividad7" name="agresividad6" class="inputAzul" style="cursor:pointer;" onchange ="ningunaVez(this.id)" required>
+                   <option value="1" default>Ninguna vez</option>
+                    <option value="2">Una vez</option>
+                    <option value="3">De 2 a 4 veces</option>
+                    <option value="4">5 o más veces</option>
+                </select>	
+				<p style = "margin: 2px 0 6px 0">¿Lo hace repetidamente?</p>
+				<div>
+                    <label for="agresividad8Si">Sí</label>
+					<input id="agresividad8Si" type="radio" name="agresividad8" value="1" required/>
+                    <label for="agresividad8No">No</label>
+                    <input id="agresividad8No" type="radio" name="agresividad8" value="0" required checked/>
+                </div>	
+				<h2>Discriminación</h2>
+				<p>La semana pasada viste que alguien fuera discriminado por:</p>
+				<select id="discriminacion1" name="discriminacion1" class="inputAzul" style="cursor:pointer;" required>
+                   <option value="1" default>Ninguna</option>
+                    <option value="2">Su orientación sexual</option>
+                    <option value="3">Su género</option>
+                    <option value="4">Su raza</option>
+					<option value="5">Su condición socioeconómica</option>
+                </select>
+				
+				<p style = "margin: 2px 0 6px 0">¿Alguna vez te has sentido discriminado por alguna razón?</p>
+				<div>
+                    <label for="discriminacion2Si">Sí</label>
+					<input id="discriminacion2Si" type="radio" name="discriminado" value="1" onchange = "comprobarConvivencia()" required/>
+                    <label for="discriminacion2No">No</label>
+                    <input id="discriminacion2No" type="radio" name="discriminado" value="0" onchange = "comprobarConvivencia()" required/>
+                </div>		
+				
+				<h2>Peleas</h2>
+				<p>La semana pasada</p>
+				<div>
+				<p>¿Insultaste o amenazaste con pegarle o le pegaste a alguien de tu colegio?</p>
+				<select id="peleas1" name="pegaste" class="inputAzul" style="cursor:pointer;" required>
+                   <option value="1" default>Ninguna vez</option>
+                    <option value="2">Una vez</option>
+                    <option value="3">De 2 a 4 veces</option>
+                    <option value="4">5 o más veces</option>
+                </select>
+                </div>
+				<div>
+				<p>¿Cuántas veces tuviste una pelea física con otra persona?</p>
+				<select id="peleas2" name="peleaInd" class="inputAzul" style="cursor:pointer;" required>
+                   <option value="1" default>Ninguna vez</option>
+                    <option value="2">Una vez</option>
+                    <option value="3">De 2 a 4 veces</option>
+                    <option value="4">5 o más veces</option>
+                </select>
+                </div>
+				
+				<div>
+				<p>¿Cuántas veces tuviste una pelea física grupal?</p>
+				<select id="peleas3" name="peleGrupal" class="inputAzul" style="cursor:pointer;" required>
+                   <option value="1" default>Ninguna vez</option>
+                    <option value="2">Una vez</option>
+                    <option value="3">De 2 a 4 veces</option>
+                    <option value="4">5 o más veces</option>
+                </select>
+                </div>
+				
+				<h2>Armas</h2>
+				<p>¿La semana pasada viste que alguien utilizara armas en tu colegio?</p>
+				<div>
+                    <label for="armas1Si">Sí</label>
+					<input id="armas1Si" type="radio" name="armas1" value="1"  onchange = "comprobarConvivencia()" required/>
+                    <label for="armas1No">No</label>
+                    <input id="armas1No" type="radio" name="armas1" value="0"  onchange = "comprobarConvivencia()" required/>
+                </div>
+				<p>¿Cuántas veces alguien te amenazó con un arma?</p>
+				<select id="armas2" name="peleGrupal" class="inputAzul" style="cursor:pointer;" required>
+                   <option value="1" default>Ninguna vez</option>
+                    <option value="2">Una vez</option>
+                    <option value="3">De 2 a 4 veces</option>
+                    <option value="4">5 o más veces</option>
+                </select>
+				<div class="botonera"  style = "margin-top: 10px; margin-bottom:2%">
+				    <button type="button" id="GuardarConvivencia" class="Guardar2" style = "background-color: #eee">Enviar respuestas</button>  
+				</div>
+				<div class="botonera"  style = "margin-top: 10px; margin-bottom:2%">
+				    <button type="button" class="Guardar2 volverMenu">Volver</button>	
+				</div>
+				<div class= "derechosEncuestas"></div>
+				<!--
+				9.	¿La semana pasada viste que alguien utilizara armas en tu colegio? (S/N)
+10.	¿Cuántas veces alguien te amenazó con un arma?
+ninguna, 1, 2 a 4,  5 o más
+-->
+	</div>		
+    </form>
+
+    <form id="asistenciaDocente" class="subventana" style="height:70%;">   
+		<div class="listas">
+            <label for="mesDocente" style = "float: left; margin-right: 8%; margin-top: 5px;">Mes</label>
+            <select id="mesDocente" name="id_meses" class="inputAzul" style="cursor:pointer; width:45%; margin-top:0; height: 30px" onclick= "asistenciaDocenteClic()" required>
+				<option value "" default></option>
+				<option value="1" >Enero</option>
+                <option value="2">Febrero</option>
+                <option value="3">Marzo</option>
+                <option value="4">Abril</option>
+                <option value="5">Mayo</option>
+                <option value="6">Junio</option>
+				<option value="7" >Julio</option>
+                <option value="8">Agosto</option>
+                <option value="9">Septiembre</option>
+                <option value="10">Octubre</option>
+                <option value="11">Noviembre</option>
+                <option value="12">Diciembre</option>
+            </select>
+        </div>
+		
+		<div class="listas">
+            <label for="gradoDocente" style = "float: left; margin-right: 5%; margin-top: 5px;">Grado</label>
+            <select id="gradoDocente" name="id_grado" class="inputAzul" style="cursor:pointer; width:45%; margin-top:0; height: 30px" onclick= "asistenciaDocenteClic()" required>
+                <option value = "" default></option>
+				<option value="1">Primero</option>
+                <option value="2"> Segundo</option>
+                <option value="3">Tercero</option>
+                <option value="4">Cuarto</option>
+                <option value="5">Quinto</option>
+                <option value="6">Sexto</option>
+                <option value="7">Séptimo</option>
+                <option value="8">Octavo</option>
+                <option value="9">Noveno</option>
+                <option value="10">Décimo</option>
+                <option value="11">Once</option>
+            </select>
+        </div>
+		
+        
+        <div class="listas" style="margin-top:20px">
+                <label for="materiaDocente">Área de conocimiento</label>
+                <select id="materiaDocente" name="id_materia" class="inputAzul" style="cursor:pointer;" onclick= "asistenciaDocenteClic()" required>
+					<option value "" default></option>
+                   <option value="1" >Ciencias naturales y educación ambiental</option>
+                    <option value="2"> Ciencias sociales, historia, geografía, constitución política y democracia</option>
+                    <option value="3">Educación artística</option>
+					<option value="4">Educación ética y en valores humanos</option>
+					<option value="5">Educación física recreación y deportes</option>
+					<option value="6">Educación religiosa</option>
+					<option value="7">Humanidades, lengua castellana e idiomas extranjeros</option>
+					<option value="8">Matemáticas</option>
+					<option value="9">Tecnología e informática</option>
+                </select>
+        </div>
+        <p> Cuántas veces no ha asistido el docente a clase:</p>
+		<div style = "width: 100%">
+			<input id="asistencia1" type="radio" name="asistenciaDocente" value="1" onchange = "asistenciaDocenteClic()" checked required/>
+            <label for="asistencia1">Nunca</label>
+        </div>
+		<div style = "width: 100%">		
+			<input id="asistencia2" type="radio" name="asistenciaDocente" value="2" onchange = "asistenciaDocenteClic()" required/>
+			<label for="asistencia2">De una a dos veces</label>
+		</div>
+		<div style = "width: 100%">	
+			<input id="asistencia3" type="radio" name="asistenciaDocente" value="3" onchange = "asistenciaDocenteClic()" required/>
+			<label for="asistencia3">De 3 a 5 veces </label>
+		</div>
+		<div style = "width: 100%">
+			<input id="asistencia4" type="radio" name="asistenciaDocente" value="4" onchange = "asistenciaDocenteClic()" required/>
+            <label for="asistencia4">Más de cinco</label>
+		</div>
+		
+		
+			<div class="botonera"  style = "margin-top: 10px; margin-bottom:2%">
+				    <button type="button" id="botonAsistencia" class="Guardar2" style = "background-color: #EEE">Enviar respuestas</button>  
+			</div>
+			<div class="botonera"  style = "margin-top: 10px; margin-bottom:2%">
+				    <button type="button" class="Guardar2 volverMenu">Volver</button>	
+			</div>
+               
+    </form>   
+  
+        
+    <form  id="transporteFormulario" class="subventana" style="height:60%;">
+        
+        <p>Cuánto tiempo tardas en movilizarse de:</p>
+		<div style = "width: 100%">	
+			<input id="transporte1" type="radio" name="transporte1" value="casacolegio" required checked/>
+			<label for="transporte1">De tu casa al colegio </label>
+		</div>
+		<div style = "width: 100%; margin-bottom: 4%;">
+			<input id="transporte2" type="radio" name="transporte1" value="colegiocasa" required/>
+            <label for="transporte2">Del colegio a tu casa </label>
+		</div>
+		
+		<input type="text" id="rutaOrigen" name="rutaOrigen" class="inputAzul" style="cursor:pointer; width: 85%; height: 30px;" placeholder="Origen" required onchange = "validarTransporte()"/>
+		<div id = "ubicadorOrigen" class = "ubicadorTransporte"> </div>
+		<input type="text" id="rutaDestino" name="rutaDestino" class="inputAzul" style="cursor:pointer; width: 85%; height: 30px;"  placeholder = "Destino" required onchange = "validarTransporte()" />
+        <div id = "ubicadorDestino" class = "ubicadorTransporte"> </div>   
+		
+		<select id="medioTransporte" name="medioTransporte" class="inputAzul" style="cursor:pointer; margin-top:5%; height:30px" required onchange = "validarTransporte()" />
+            <option value="" default>Medio de transporte</option>
+            <option value="1">Ruta escolar</option>
+			<option value="2">Automóvil</option>
+            <option value="3">Bus de servicio público</option>
+			<option value="4">Bicicleta</option>
+			<option value="5">Caminando</option>
+			<option value="6">Otro</option>
+        </select>
+         
+		 <input type="number" id="horasTransporte" name="horasTransporte" class="inputAzul inputTiempos" required/>
+		 <p class = "pTiempos" >horas</p>
+		  <input type="number" id="minTransporte" name="minTransporte" class="inputAzul inputTiempos" style= "margin-left: 10px;" required onchange = "validarTransporte()"/>
+		 <p class = "pTiempos">minutos</p>
+        <div class="botonera"  style="height:55px">
+            <button type="button" id="transportesub" class="Guardar2" style="margin-top:20px; background-color:#EEE">Enviar respuesta</button>
+        </div>
+		<div class="botonera"  style = "margin-top: 10px; margin-bottom:2%">
+			<button type="button" class="Guardar2 volverMenu">Volver</button>	
+		</div>
+               
+    </form>
+	
+    <form  action="mailto:japalaciosm@dane.gov.co?Subject=SICOLE" id="contactoVentana" class="subventana"  style = "margin-top:25% " method="POST" ENCTYPE="text/plain">
+        <div id="encabezado1" class="titulo2">
+                <h1 style="margin-top:-1px">Contáctenos</h1>
+                <div class="linea"></div>
+        </div>
+        <div id="nombreDiv" class="displayTexto">
+            <label>Nombre</label>
+            <input type="text" id="nombre" name="nombre" class="inputAzul" style="cursor:pointer;" required>
+        </div>
+        <div class="displayTexto">
+            <label>Email</label>
+            <input type="email" id="email" name="E-mail" class="inputAzul" style="cursor:pointer;" required>
+        </div>
+        <div class="displayTexto">
+            <label>Deje su comentario</label>
+			<textarea rows="4" cols="50" name="comentario" id="comentario" class="inputAzul" form="contactoVentana" style="cursor:pointer;" required></textarea>
+            <!---input type="texto" id="comentario" name="comentario" class="inputAzul" style="cursor:pointer; height:30%"> -->
+        </div>
+        <button type="submit" id="Enviarcomentario" class="Guardar" class="submit-btn" style="margin-top:20px;height:30px">Enviar</button> 		
+        <div id="volver5" style="margin-top:10%;cursor:pointer"> Volver </div>
+    </form>
+        
+    <div id="infoSicole">
+		<center style="margin-top: 20px;">
+			<img src="imagenes/sicoleLogo.png" width="90%"/>
+			<p>Sistema de Información Geográfica de Colegios</p>    
+			<p>Versión 1.0</p>
+			<p>Departamento Administrativo Nacional de Estadística</p>
+			<p>Todos los derechos reservados</p>
+		</center>    
+		<button id="terminosUso" class="Guardar" class="submit-btn" style="margin-top:40px;height:30px;display:none">
+			Términos de Uso
+		</button> 
+        <div id="volver4" style="margin-top:5%;cursor:pointer"> Volver </div>
+		<div id="espacios">
+        	<p><br><br><br><br><br></p>
+        </div>
+	</div>		    
+        
+    </div>
+    	
+	<div id="barrafiltro" class = "ventanasCategorias" style="text-align:center">
+			<div id="salirFuncionFiltro" class = "salirFuncionalidades"><p style = "color: white">X</p></div>
+			<h1 id = "nombreFiltros" class = "nombresFuncion">Filtros</h1>
+			<div id = "encabezadoFiltro">
+					<div id = "filtrosNormales" class= "pestana"><p style = "color:#01B4ED">Filtros</p></div>
+					<div id = "filtrosOtros" class= "pestana sombra" style = "background-color:#01B4ED"><p style = "color: white">Otros filtros</p></div>
+			</div>
+			<div id= "filtrosPrincipales" class = "categoriasMargen">
+				
+				<select id="ciudades" name="ciudades" class="inputAzul" style=" margin-top:6%; width: 90%">
+					<option value ="todo">Todo</option>
+					<option value ="bogota">Bogotá</option>
+					<option value ="soacha">Soacha</option>
+				</select>
+				<p>Sector:</p>
+				
+				<div class = "sectoresCheck" style = "width: 100%; height: 30px; margin: -2% 0 0 3%" >
+					<div class = "checkBoxSectores" style = "width: 38%">	
+						<div class="squaredOne">
+							<input type="checkbox" value="oficial" id="Oficial" name="Oficial" checked/>
+							<label for="Oficial"></label>
+						</div>
+						<div class = "textoSectores" style = "color: #0A738C">Oficial</div>
+						<div class = "imagenSectores imagenFiltros "></div>
+					</div>
+					<div class = "checkBoxSectores" style = "width: 38%">	
+						<div class="squaredOne">
+							<input type="checkbox" value="NoOficial" id="NoOficial" name="NoOficial" checked/>
+							<label for="NoOficial"></label>
+						</div>
+						<div class = "textoSectores" style = "color : #70A12E">No oficial</div>
+						<div id = "imagenNoOficial2" class = " imagenSectores imagenFiltros" style = "background-image:url(imagenes/no-oficial.png);"></div>
+					</div>			
+				</div>
+				<div class = "lineaDivisoria"></div>
+				<p>Calendario:</p>
+				<div class = "sectoresCheck" style = "width: 100%; height: 30px; margin: -2% 0 0 3%" >
+					<div class = "checkBoxSectores" style = "width: 20%">	
+						<div class="squaredOne">
+							<input type="checkbox" value="calendarioA" id="calendarioA" name="calendarioA" checked/>
+							<label for="calendarioA"></label>
+						</div>
+						<div class = "textoSectores">A</div>
+					</div>
+					<div class = "checkBoxSectores" style = "width: 20%">	
+						<div class="squaredOne">
+							<input type="checkbox" value="calendarioB" id="calendarioB" name="calendarioB" checked/>
+							<label for="calendarioB"></label>
+						</div>
+						<div class = "textoSectores">B</div>
+					</div>	
+					<div class = "checkBoxSectores" style = "width: 24%">	
+						<div class="squaredOne">
+							<input type="checkbox" value="calendarioOtros" id="calendarioOtros" name="calendarioOtros" checked/>
+							<label for="calendarioOtros"></label>
+						</div>
+						<div class = "textoSectores">Otros</div>
+					</div>		
+				</div>
+				<div class = "lineaDivisoria"></div>
+				<p> Sexo población atendida:</p>
+				<div class = "sectoresCheck" style = "width: 100%; height: 30px; margin: -2% 0 0 3%" >
+					<div class = "checkBoxSectores" style = "width: 17%">	
+						<div class="squaredOne">
+							<input type="checkbox" value="femenino" id="femenino" name="femenino" checked/>
+							<label for="femenino"></label>
+						</div>
+						<div class = "imagenSectores imagenFiltros "  style = "background-image:url(imagenes/mujer1.png)" title = "Mujer"></div>
+					</div>
+					<div class = "checkBoxSectores" style = "width: 17%">	
+						<div class="squaredOne">
+							<input type="checkbox" value="masculino" id="masculino" name="masculino" checked/>
+							<label for="masculino"></label>
+						</div>
+						<div id = "imagenNoOficial2" class = " imagenSectores imagenFiltros" style = "background-image:url(imagenes/hombre1.png);" title= "Hombre"></div>
+					</div>
+					<div class = "checkBoxSectores" style = "width: 17%">	
+						<div class="squaredOne">
+							<input type="checkbox" value="mixto" id="mixto" name="mixto" checked/>
+							<label for="mixto"></label>
+						</div>
+						<div class = " imagenSectores imagenFiltros" style = "background-image:url(imagenes/mixto.png);" title = "Mixto"></div>
+					</div>						
+				</div>
+				<div class = "lineaDivisoria"></div>
+				<p>Jornadas:</p>
+				<div class = "sectoresCheck" style = "width: 100%; height: 30px; margin: -2% 0 0 3%" >
+					<div class = "checkBoxSectores" style = "width: 17%">	
+						<div class="squaredOne">
+							<input type="checkbox" value="filtroManana" id="filtroManana" name="filtroManana" checked/>
+							<label for="filtroManana"></label>
+						</div>
+						<div class = "imagenSectores imagenFiltros "  style = "background-image:url(imagenes/filtromanana.png);margin-left: 10%;" title = "Mañana"></div>
+					</div>
+					<div class = "checkBoxSectores" style = "width: 17%">	
+						<div class="squaredOne">
+							<input type="checkbox" value="filtroTarde" id="filtroTarde" name="filtroTarde" checked/>
+							<label for="filtroTarde"></label>
+						</div>
+						<div id = "imagenNoOficial2" class = " imagenSectores imagenFiltros" style = "background-image:url(imagenes/filtrotarde.png); margin-left: 10%;" title = "Tarde"></div>
+					</div>
+					<div class = "checkBoxSectores" style = "width: 17%">	
+						<div class="squaredOne">
+							<input type="checkbox" value="filtroNoche" id="filtroNoche" name="filtroNoche" checked/>
+							<label for="filtroNoche"></label>
+						</div>
+						<div class = " imagenSectores imagenFiltros" style = "background-image:url(imagenes/filtronoche.png);margin-left: 10%;" title = "Noche"></div>
+					</div>
+					<div class = "checkBoxSectores" style = "width: 17%">	
+						<div class="squaredOne">
+							<input type="checkbox" value="filtroSabado" id="filtroSabado" name="filtroSabado" checked/>
+							<label for="filtroSabado"></label>
+						</div>
+						<div class = " imagenSectores imagenFiltros" style = "background-image:url(imagenes/filtrosf.png);margin-left: 10%;" title = "Fines de semana y festivos"></div>
+					</div>	
+					<div class = "checkBoxSectores" style = "width: 17%">	
+						<div class="squaredOne">
+							<input type="checkbox" value="filtroCompleta" id="filtroCompleta" name="filtroCompleta" checked/>
+							<label for="filtroCompleta"></label>
+						</div>
+						<div class = " imagenSectores imagenFiltros" style = "background-image:url(imagenes/filtrocontin.png); margin-left: 10%;" title = "Completa"></div>
+					</div>		
+				</div>
+				<div class = "lineaDivisoria"></div>
+				<p>Niveles:</p>
+				<div class = "sectoresCheck" style = "width: 100%; height: 30px; margin: -2% 0 0 3%" >
+					<div class = "checkBoxSectores" style = "width:50%">	
+						<div class="squaredOne">
+							<input type="checkbox" value="PREESCOLAR" id="preescolar" name="preescolar" checked/>
+							<label for="preescolar"></label>
+						</div>
+						<div class = "textoSectores" >Preescolar</div>
+					</div>
+					<div class = "checkBoxSectores" style = "width:50%">	
+						<div class="squaredOne">
+							<input type="checkbox" value="PRIMARIA" id="primaria" name="primaria" checked/>
+							<label for="primaria"></label>
+						</div>
+						<div class = "textoSectores" >Primaria</div>
+					</div>
+					<div class = "checkBoxSectores" style = "width:50%">	
+						<div class="squaredOne">
+							<input type="checkbox" value="SECUNDARIA" id="secundaria" name="secundaria" checked/>
+							<label for="secundaria"></label>
+						</div>
+						<div class = "textoSectores">Secundaria</div>
+					</div>	
+					<div class = "checkBoxSectores" style = "width:50%">	
+						<div class="squaredOne">
+							<input type="checkbox" value="MEDIA" id="media" name="media" checked/>
+							<label for="media"></label>
+						</div>
+						<div class = "textoSectores">Media</div>
+					</div>	
+				</div>
+				<div class = "lineaDivisoria finalSesion"></div>
+				<p>Distancia:</p>
+				<div class = "contenedorLimites">100m</div>
+				<form class = "rangeFiltro">
+					<input type = "range" id = "filtroDistanciaR" name = "filtroDistanciaR" min ="100" max = "4000" value = "2000"/>
+						<output id ="outputDistancia1" for="filtroDistanciaR" onforminput="value = filtroDistanciaR.valueAsNumber;" style= "margin-left:42%">2.0Km</output>
+				</form>
+				<div class = "contenedorLimites">4Km</div>
+				
+				<p style = "margin-top: 28%">Saber 11:</p>
+				<div class = "contenedorLimites" style = "margin-top: 3.3%; background-image: url(imagenes/icfesmal.png); height: 25px"></div>
+				<form class = "rangeFiltro" style = "margin:30px 0 0 3%">
+					<div id="slider-range"></div>
+					<output id = "profes1Output" for="slider-range" onforminput="value = slider-range.valueAsNumber;" style= "left: -41.8%;">0</output>
+					<output id = "profes2Output" for="slider-range" onforminput="value = slider-range..valueAsNumber;" style= "top: -238%; bottom: inherit; left: 8px;">1</output>
+				</form>
+				<div class = "contenedorLimites" style ="margin: 23px 0 0 -5%; background-image: url(imagenes/icfesbien.png); height: 25px;"></div>
+				
+				<p style = "margin-top: 25%">Estudiantes por docente</p>
+				<div class = "auxiliar">
+				<div class = "contenedorLimites rangoDocente">1</div>
+				<form class = "rangeFiltro" style = "margin-top: 20px">
+					<input type = "range" id = "numeroEstudiantes1" name = "numeroEstudiantes1" min ="1" max = "100" value = "100"/>
+					<output for="numeroEstudiantes1" onforminput="value = numeroEstudiantes.valueAsNumber;" style= "margin-left: 94%">100</output>
+				</form>
+				<div class = "contenedorLimites rangoDocente">100</div>
+				</div>
+				<div class = "lineaDivisoria finalSesion"></div>
+			</div>
+			<div id= "filtrosAdicionales" class = "categoriasMargen" style= "display:none; overflow: initial;">	
+				
+			</div>
+			
+			
+			<div class= "botoneraReportes">			
+				<div id= "borrarFiltros" class = "botonesFiltros" style = "background-color: #1CB4E9; margin-top: 20px"><p>Borrar Filtros</p></div>
+				<p> Reporte:</p>
+				<div id = "reporteCompleto" class = "botonesFiltros" style = "background-color: #8FBE2B;"><p>Ver reporte completo</p></div>
+				<div class = "botonesFiltros " style = "margin: 10px 0 8% 0"><p>Descargar reporte completo</p></div>
+			</div>
+					
+		</div>
+	<div id = "ventanaEncuesta"></div>
+	<div id = "contenedorEncuesta">
+		<div id= "tituloConectividad">
+			<div id = "iconoConectividad"></div>
+			<h1>Conectividad móvil</h1>
+		</div>
+	
+		<div = id="loginMovil">
+			<p id = "introduccion" style = "margin-top:0; font-size:0.9rem ">SICOLE es un proyecto en crecimiento.  Aunque por ahora sólo estamos en Bogotá y Soacha, pronto estaremos en otras ciudades y ofreceremos nuevos servicios.  Para mantenerte informado nos gustaría contar con algunos datos tuyos.   Si quieres registrarte  por favor <a onClick="crearCuentaUsuario();">haz clic aquí</a>.  De lo contrario, continua con la encuesta. </p>
+				<label for="tipoDocMovil" style="width: 100%; float: left;">Tipo de documento</label>    
+				<select id="tipoDocMovil" name="tipoDocMovil" class="inputAzul" style="height: 30px; width:98%">
+					<option value = "" default></option> 
+					<option value=1> Cédula de ciudadanía</option>
+					<option value=2> Tarjeta de Identidad</option>
+					<option value=3> Cédula de extranjería o Identificación de Extranjería</option>
+					<option value=4> Registro Civil de Nacimiento</option>
+					<option value=5> Número de Identificación Personal (NIP) </option>
+					<option value=6> Número Único de Identificación Personal (NUIP) </option>
+					<option value=7> No de Identificación - Secretaría de Educación </option>
+					<option value=8> Certificado de Cabildo </option>
+				</select>
+			    <label for="NumerodeDocumentoMoviles" style="width: 100%; float: left; margin-top:10px">Número de documento</label> 
+				<input type="text" id="NumerodeDocumentoMoviles" name="NumerodeDocumentoMoviles" class="inputAzul" style="cursor: pointer"/>
+				<div class="botonera"  style = "margin-top: 10px; margin-bottom:40px">
+					<button type="button" id="botonComprobarId" class="Guardar2" style = "background-color: #eee">Validar documento</button>  
+				</div>
+		</div>
+		
+		<div id="regresarPregunta" class = "botonEncuestaMover" style = "margin-left: 5%;"><p> < </p></div>
+		<div = id="encuestaMovil">
+		 <div  id = "0Movil" class = "encuestaOculta" style= "display: block;">
+			<p style = "margin-top:0">¿Tienes teléfono móvil inteligente (smartphone)?</p>
+			<label for="resp0">
+			<input id="resp0" type="radio" name="resp0" value="1" />
+			Sí</label>
+			<label for="resp0">
+			<input id="resp0" type="radio" name="resp0" value="0"/>
+             No</label>
+        </div>
+		
+		<div id = "1Movil" class = "encuestaOculta">
+			<p>A pesar de no tener teléfono móvil inteligente (smartphone), accedes al servicio de telefonía móvil por:</p>
+			<div>
+				<label for="resp1">
+				<input id="resp1" type="radio" name="resp1" value="1" required onchange = "otrosAccesos()"/>
+				Teléfono familiar</label>
+				<label for="resp1">
+				<input id="resp1" type="radio" name="resp1" value="2" required onchange = "otrosAccesos()"/>
+				Teléfono de amigo</label>
+				<label for="resp1">
+				<input id="resp1" type="radio" name="resp1" value="3" required onchange = "otrosAccesos()"/>
+				No accedes</label>
+			</div>	
+		</div>
+		<div id = "2Movil" class = "encuestaOculta">
+			<p>¿Dónde usas tu teléfono móvil inteligente (smartphone)?</p>
+			<div>
+				<label for="resp2">
+				<input id="resp2" type="radio" name="resp2" value="colegio" required/>
+				Colegio</label>
+				<label for="resp2">
+				<input id="resp2" type="radio" name="resp2" value="casa" required/>
+				Casa</label>
+				<label for="resp2">
+				<input id="resp2" type="radio" name="resp2" value="ambas" required/>
+				Ambas</label>
+			</div>	
+		</div>
+		<div id = "3Movil" class = "encuestaOculta2">
+			<p>¿Dispones de conexión a internet en tu teléfono móvil inteligente (smartphone)?</p>
+			<div>
+				<label for="resp3">
+				<input id="resp3" type="radio" name="resp3" value="1" required/>
+				Sí</label>
+				<label for="resp3">
+				<input id="resp3" type="radio" name="resp3" value="0" required/>
+				No</label>
+			</div>
+		</div>
+		<div id = "31Movil" class = "encuestaOculta">
+			<p>¿Qué tipo de conexión?</p>
+			<div>
+				<label for="resp31">
+				<input id="resp31" type="radio" name="resp31" value="1" required/>
+				Plan de datos</label>
+				<label for="resp31">
+				<input id="resp31" type="radio" name="resp31" value="0" required/>
+				 Conexión Wifi</label>
+			</div>
+		</div>
+		<div id = "4Movil" class = "encuestaOculta">
+			<p>¿Con qué frecuencia usas el teléfono móvil inteligente (smartphone)? </p>
+			<div>
+					<label for="resp4">
+					<input id="resp4" type="radio" name="resp4" value="1" required/>
+					Todos los días de la semana</label>
+					<label for="resp4">
+					<input id="resp4" type="radio" name="resp4" value="2" required/>
+					Al menos una vez a la semana</label>
+					<label for="resp4">
+					<input id="resp4" type="radio" name="resp4" value="3" required/>
+					Al menos una vez al mes</label>
+			</div>
+		</div>	
+		<p id ="conQueFrec" style="display:none;">¿Con qué frecuencia usas las siguientes aplicaciones desde el teléfono móvil inteligente (smartphone)?</p>
+		<div id = "5Movil" class = "encuestaOculta">
+			<div class = "appEncuesta">
+				<div class = "imagenRedesSociales"></div>
+				<p style = "text-align: center; font-size: 0.9rem; font-weight: normal;">Facebook</p>
+				<div>
+					<label for="resp5">
+					<input id="resp5" type="radio" name="resp5" value="1" required/>
+					Todos los días de la semana</label>
+					<label for="resp5">
+					<input id="resp5" type="radio" name="resp5" value="2" required/>
+					Al menos una vez a la semana</label>
+					<label for="resp5" style= "width: 100%">
+					<input id="resp5" type="radio" name="resp5" value="3" required/>
+					Al menos una vez al mes</label>
+					<label for= "resp5">
+					<input id="resp5" type="radio" name="resp5" value="4"required/>
+					Nunca</label>
+				</div>
+			</div>
+		</div>
+		<div id = "6Movil" class = "encuestaOculta">
+			<div class = "imagenRedesSociales" style= "background-image: url(imagenes/whatsapp.png)" ></div>
+			<p style = "text-align: center; font-size: 0.9rem; font-weight: normal;">Whatsapp</p>
+			<div>
+				<label for="resp6">
+				<input id="resp6" type="radio" name="resp6" value="1" onchange = "verificacionMovil(this.id)" required/>
+				Todos los días de la semana</label>
+				<label for="resp6">
+				<input id="resp6" type="radio" name="resp6" value="2" onchange = "verificacionMovil(this.id)" required/>
+				Al menos una vez a la semana</label>
+				<label for="resp6" style= "width: 100%">
+				<input id="resp6" type="radio" name="resp6" value="3" onchange = "verificacionMovil(this.id)" required/>
+				Al menos una vez al mes</label>
+				<label for= "resp6">
+				<input id="resp6" type="radio" name="resp6" value="4" onchange = "verificacionMovil(this.id)" required/>
+				Nunca</label>
+			</div>
+		</div>
+		<div id = "7Movil" class = "encuestaOculta">
+			<div class = "imagenRedesSociales" style= "background-image: url(imagenes/youtube.png)" ></div>
+			<p style = "text-align: center; font-size: 0.9rem; font-weight: normal;">Youtube</p>
+			<div>
+				<label for="resp7">
+				<input id="resp7" type="radio" name="resp7" value="1"  required/>
+				Todos los días de la semana</label>
+				<label for="resp7">
+				<input id="resp7" type="radio" name="resp7" value="2"  required/>
+				Al menos una vez a la semana</label>
+				<label for="resp7" style= "width: 100%">
+				<input id="resp7" type="radio" name="resp7" value="3" required/>
+				Al menos una vez al mes</label>
+				<label for= "resp7">
+				<input id="resp7" type="radio" name="resp7" value="4" required/>
+				Nunca</label>
+			</div>
+		</div>
+		
+		<div id = "8Movil" class = "encuestaOculta">
+			<div class = "imagenRedesSociales" style= "background-image: url(imagenes/navegadores.png)" ></div>
+			<p style = "text-align: center; font-size: 0.9rem; font-weight: normal;">Páginas web (navegadores)</p>
+			<div>
+				<label for="resp8">
+				<input id="resp8" type="radio" name="resp8" value="1"  required/>
+				Todos los días de la semana</label>
+				<label for="resp8">
+				<input id="resp8" type="radio" name="resp8" value="2"  required/>
+				Al menos una vez a la semana</label>
+				<label for="resp8" style= "width: 100%">
+				<input id="resp8" type="radio" name="resp8" value="3"  required/>
+				Al menos una vez al mes</label>
+				<label for= "resp8">
+				<input id="resp8" type="radio" name="resp8" value="4"  required/>
+				Nunca</label>
+			</div>
+		</div>
+		<div id = "9Movil" class = "encuestaOculta2">
+				<p>¿Utilizas otras aplicaciones de música, juegos, video, fotografía u otras redes sociales?</p>
+				<label for="resp9">
+				<input id="resp9" type="radio" name="resp9" value="1" required/>
+				Sí</label>
+				<label for="resp9">
+				<input id="resp9" type="radio" name="resp9" value="0" required/>
+				No</label>
+			
+		</div>
+		<div id = "91Movil" class = "encuestaOculta2">
+			<p style = "font-weight:normal; margin: 14px 0 0 0;" ><font color= "black">¿Cuáles?</font></p>
+			<input type="text" id="otrasApp1" name="otrasApp1" class="inputAzul" style="cursor:pointer; height: 30px;" placeholder="Aplicaciones de entretenimiento" required/>
+			<div id = "frecAppMusica">
+				<label for="resp91">
+				<input id="resp91" type="radio" name="resp91" value="1" required/>
+				Todos los días de la semana</label>
+				<label for="resp91">
+				<input id="resp91" type="radio" name="resp91" value="2" required/>
+				Al menos una vez a la semana</label>
+				<label for="resp91" style= "width: 100%">
+				<input id="resp91" type="radio" name="resp91" value="3" required/>
+				Al menos una vez al mes</label>
+				<label for= "resp91">
+				<input id="resp91" type="radio" name="resp91" value="4" onchange = "verificacionMovil()" required/>
+				Nunca</label>
+			</div>
+		</div>
+			
+		<div id = "10Movil" class = "encuestaOculta2">
+			<p>¿Utilizas aplicaciones geográficas o que usen mapas?</p>
+			<label for="resp10">
+				<input id="resp10" type="radio" name="resp10" value="1" required/>
+				Sí</label>
+				<label for="resp10">
+				<input id="resp10" type="radio" name="resp10" value="0" required/>
+				No</label>
+		</div>
+		<div id = "101Movil" class = "encuestaOculta">	
+			<p style = "font-weight:normal; margin: 14px 0 0 0;"><font color= "black">¿Cuáles?</font></p>
+			<input type="text" id="otrasApp2" name="otrasApp2" class="inputAzul" style="cursor:pointer; height: 30px;" placeholder="Aplicaciones Geográficas" required/>
+			<div id = "frecAppGeo">
+				<label for="resp101">
+				<input id="resp101" type="radio" name="resp101" value="1" required/>
+				Todos los días de la semana</label>
+				<label for="resp101">
+				<input id="resp101" type="radio" name="resp101" value="2" required/>
+				Al menos una vez a la semana</label>
+				<label for="resp101">
+				<input id="resp101" type="radio" name="resp101" value="3" required/>
+				Al menos una vez al mes</label>
+			</div>
+		</div>
+		<div id = "11Movil" class = "encuestaOculta2">
+			<p>Otras aplicaciones</p>
+			<label for="resp11">
+			<input id="resp11" type="radio" name="resp11" value="1" required/>
+			Sí</label>
+			<label for="resp11">
+			<input id="resp11" type="radio" name="resp11" value="0" required/>
+			No</label>
+		</div>
+		<div id = "111Movil" class = "encuestaOculta">	
+			<p style = "font-weight:normal;margin: 14px 0 0 0;" ><font color= "black">¿Cuáles?</font></p>
+			<input type="text" id="otrasApp3" name="otrasApp3" class="inputAzul" style="cursor:pointer; height: 30px;" placeholder="Otras aplicaciones" required/>
+			<div id = "frecAppOtras">
+				<label for="resp111">
+				<input id="resp111" type="radio" name="resp111" value="1" required/>
+				Todos los días de la semana</label>
+				<label for="resp111">
+				<input id="resp111" type="radio" name="resp111" value="2" required/>
+				Al menos una vez a la semana</label>
+				<label for="resp111">
+				<input id="resp111" type="radio" name="resp111" value="3" required/>
+				Al menos una vez al mes</label>
+			</div>	
+		</div>
+		<p id = "quienTeComunicas" style =" display: none;">¿Con quién te comunicas a través del teléfono móvil inteligente (smartphone) y con qué frecuencia?</p>
+		<div class = "appEncuesta">
+			<div id = "12Movil" class = "encuestaOculta">	
+				<p>Con tus papás</p>	
+				<div>
+					<label for="resp12">
+					<input id="resp12" type="radio" name="resp12" value="1" onchange = "verificacionMovil()" required/>
+					Todos los días de la semana</label>
+					<label for="resp12">
+					<input id="resp12" type="radio" name="resp12" value="2" onchange = "verificacionMovil()" required/>
+					Al menos una vez a la semana</label>
+					<label for="resp12">
+					<input id="resp12" type="radio" name="resp12" value="3" onchange = "verificacionMovil()" required/>
+					Al menos una vez al mes</label>
+				</div>
+			</div>
+			<div id = "13Movil" class = "encuestaOculta">	
+				<p>Con familiares</p>	
+				<div>
+					<label for="resp13">
+					<input id="resp13" type="radio" name="resp13" value="1" onchange = "verificacionMovil()" required/>
+					Todos los días de la semana</label>
+					<label for="resp13">
+					<input id="resp13" type="radio" name="resp13" value="2" onchange = "verificacionMovil()" required/>
+					Al menos una vez a la semana</label>
+					<label for="resp13">
+					<input id="resp13" type="radio" name="resp13" value="3" onchange = "verificacionMovil()" required/>
+					Al menos una vez al mes</label>
+				</div>
+			</div>
+			<div id = "14Movil" class = "encuestaOculta">
+				<p>Con amigos</p>	
+					<label for="resp14">
+					<input id="resp14" type="radio" name="resp14" value="1" onchange = "verificacionMovil()" required/>
+					Todos los días de la semana</label>
+					<label for="resp14">
+					<input id="resp14" type="radio" name="resp14" value="2" onchange = "verificacionMovil()" required/>
+					Al menos una vez a la semana</label>
+					<label for="resp14">
+					<input id="resp14" type="radio" name="resp14" value="3" onchange = "verificacionMovil()" required/>
+					Al menos una vez al mes</label>
+			</div>		
+			
+		</div>
+			<div id= "guardarConect" class="botonera"  style = "margin-top: 10px; margin-bottom:2%; display: none">
+				<button type="button" id="botonMoviles" class="Guardar2" style = "background-color: #eee">Enviar respuestas</button>  
+			</div>
+			
+		</div>
+		<div id="adelantarPregunta" class = "botonEncuestaMover"><p>></p></div>
+		<p id= "lugarPregunta">1/15<p>
+		
+	</div>	
+	
+	
+	
+	<div id="map_canvas" class='bigmap_toda_pantalla'style="width:100%; height:100%;">
+	</div>
+	
+
+<script src="js/eventos.js"></script>
+<script src="js/encuestas.js"></script>		
+</body>
+</html>

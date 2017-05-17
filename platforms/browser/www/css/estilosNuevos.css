@@ -1,0 +1,1797 @@
+/*******************************************************************************************************************************************
+                                                        CABEZOTE
+*******************************************************************************************************************************************/
+
+#cabezote{
+    
+    width: 100%;
+    top: 5px;
+    position: relative;
+    background-color: #01B4ED;
+    z-index: 1000;
+    display: none;
+    position:relative;
+    -webkit-box-shadow: 0px 6px 23px 0px rgba(133,129,133,1);
+    -moz-box-shadow: 0px 6px 23px 0px rgba(133,129,133,1);
+    box-shadow: 0px 6px 23px 0px rgba(133,129,133,1);
+}
+
+#cabezote1{
+    width: 100%;
+    top: 5px;
+    position: relative;
+    z-index: 1000;
+    display: none;
+    position:absolute;
+    
+}
+
+@media only screen and (min-width:500px){
+    
+    #cabezote{
+        height: 85px;
+    }
+    
+    #cabezote1{
+        height: 85px;
+    }
+}
+
+@media only screen and (max-width:500px){
+    
+    #cabezote{
+        height: 40px;
+    }
+    
+    #cabezote1{
+        height: 40px;
+    }
+}
+
+
+#menuHamburguesa{
+    
+    width: 8%;
+    height: 100%;
+    float: left;
+    background: url(../imagenes/tres_r.png) no-repeat;
+    background-position: center;
+    background-size: 90% auto;
+    left: 2%;
+    position: absolute; 
+}
+
+#logoSicoleHeader{
+   
+    width: 30%;
+    height: 117%;
+    float: left;
+    background: url(../imagenes/logo_cabezote.png) no-repeat;
+    background-position: center;
+    background-size: 60% auto;
+    margin-left: 35%;
+    
+}
+
+/*******************************************************************************************************************************************
+                                                        BARRA DE BÚSQUEDA
+*******************************************************************************************************************************************/
+
+
+#panel {
+	background-color: white;
+    width: 95%;
+    margin-left:2.5%;
+    border-radius: 11px;
+    -moz-box-shadow: 0px 0px 16px #000000;
+    -webkit-box-shadow: 0px 0px 16px #000000;
+    box-shadow: 0px 0px 16px #000000;
+    position: absolute;
+    z-index:1000;
+    border: solid 1px #01B4ED;
+}
+
+@media only screen and (min-width:500px){
+ 
+    #panel {
+        
+        height: 60px;
+    }
+    
+}
+
+@media only screen and (max-width:500px){
+ 
+    #panel {
+        
+        height: 35px;
+    }
+    
+}
+
+#tipoDeBusqueda{
+    
+    height: 100%;
+    width:14%;
+    border-radius: 11px 0 0 11px;
+    background-color: #CCC;
+    background: -webkit-linear-gradient(#EEE, #B4B4B4); /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(#EEE, #B4B4B4); /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(#EEE, #B4B4B4); /* For Firefox 3.6 to 15 */
+    background: linear-gradient(#EEE, #B4B4B4); /* Standard syntax */
+    float:left;
+    
+}
+
+.inputBusqueda{
+    width: 95%;
+    background-color: #D0EBFD;
+    border-radius: 0px;
+    padding: 2.9%;
+    border: none;
+    float: left;
+    padding-right: 2%;
+}
+
+@media only screen and (min-width:700px){
+    
+    .inputBusqueda{
+    
+        font-size:1.4rem;
+		height: 45%;
+    }
+}
+
+@media only screen and (max-width:700px){
+    
+    .inputBusqueda{
+    
+        font-size:1.4rem;
+		height: 57%;
+    }
+}
+
+
+@media only screen and (max-width:500px){
+    
+    .inputBusqueda{
+    
+        font-size:0.9rem;
+		height: 57%;
+    }
+}
+@media only screen and (max-width: 350px){
+    
+    .inputBusqueda{
+    
+        font-size:0.9rem;
+		height: 57%;
+    }
+}
+
+
+.inputBusqueda::-webkit-input-placeholder {
+        color:#0D556A;
+    }
+
+.inputBusqueda::-moz-placeholder {  /* Firefox 19+ */
+        color:#0D556A;  
+}
+
+.inputBusqueda::-ms-input-placeholder {  
+        color:#0D556A; 
+}
+
+.inputBusqueda:: input-placeholder {  
+        color:#0D556A;  
+}
+
+
+
+
+
+#botongps{
+    width:11%;
+    height: 100%;
+    background-color: #01B4ED;
+    background-image: url(../imagenes/gps.png); 
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 78% auto;
+    float: left;
+    border-radius: 0 11px 11px 0;
+}
+
+#desplegarBttn{
+   
+    height: 100%;
+    width: 27%;
+    background-image: url(../imagenes/flecha_azul.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: auto 35%;
+    margin-left: 9%;
+    float: left;
+    
+}
+
+#logoBusqueda{
+    
+    height: 100%;
+    width: 57%;
+    background-image: url(../imagenes/geop_ico.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: auto 80%;
+    float: left;
+    margin-left: 4%;
+}
+   
+#ventanaTipoBusqueda{
+    width:60%;
+    height:auto;
+    display:none;
+    z-index:2000;
+}
+
+
+
+#ventanaTipoBusqueda ul{
+    
+    width:100%;
+    height: auto;
+    list-style: none;
+}
+
+
+#ventanaTipoBusqueda li{
+    
+    width:100%;
+    background-color: #CCC;
+    background: -webkit-linear-gradient(#EEE, #B4B4B4); /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(#EEE, #B4B4B4); /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(#EEE, #B4B4B4); /* For Firefox 3.6 to 15 */
+    background: linear-gradient(#EEE, #B4B4B4); /* Standard syntax */
+    background-color:#9FBE63;
+    border-bottom: solid 1px white;
+    color:white;
+    line-height: 60px;
+    
+} 
+
+@media only screen and (min-width:500px){
+    
+    #ventanaTipoBusqueda{
+        margin-top: 15%;
+        margin-left:-2%;
+    }
+    
+    #ventanaTipoBusqueda li{
+        
+        height: 70px;
+    }
+}
+
+@media only screen and (max-width:500px){
+
+    #ventanaTipoBusqueda{
+        margin-top: 11%;
+        margin-left:-8%;
+    }
+    
+    #ventanaTipoBusqueda li{
+        
+        height: 50px;
+    }
+}
+
+.imagenTipoBusqueda{
+    width:10%;
+    height: 100%;
+    margin-left:3%;
+    background-image: url(../imagenes/geop_ico.png);
+    background-repeat:no-repeat;
+    background-position: center;
+    float:left;
+    
+}
+
+
+.textoTipoBusqueda{
+    width: 77%;
+    height: 100%;
+    color: #333;
+    text-align: left;
+    float: left;
+    margin-left: 5%;
+    
+}
+
+
+@media only screen and (min-width:500px){
+    
+    .textoTipoBusqueda{
+        line-height: 70px;
+        font-size: 1.5rem;
+    }
+    
+    .imagenTipoBusqueda{
+        
+        background-size: 120% auto;
+    }
+}
+
+@media only screen and (max-width:500px){
+    
+    .textoTipoBusqueda{
+        line-height: 50px;
+        font-size: 0.9rem;
+    }
+    
+    .imagenTipoBusqueda{
+        
+        background-size: 130% auto;
+    }
+}
+
+@media only screen and (max-width:350px){
+    
+    .textoTipoBusqueda{
+        line-height: 50px;
+        font-size: 0.8rem;
+    }
+    
+    .imagenTipoBusqueda{
+        
+        background-size: 140% auto;
+    }
+}
+
+/*******************************************************************************************************************************************
+                                                        Menús Desplegables
+*******************************************************************************************************************************************/
+.menusDesplegables{
+    
+    width: 24px;
+    height: 44px;
+    position:absolute;
+    z-index: 500;
+    top:50%;
+    background-color:#DDD;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: auto 60%;
+    display:none;
+}
+
+/**********************************************************************************************************************************************
+                                                        Menu Despliegue Izquierda
+**********************************************************************************************************************************************/
+
+#menuDesplegableIzq{
+    
+    left:0;
+    background-image: url(../imagenes/flecha_menu_1.png);
+    border-radius: 0 6px 6px 0;    
+    -webkit-box-shadow: 4px 2px 23px 6px rgba(130,130,130,1);
+    -moz-box-shadow: 4px 2px 23px 6px rgba(130,130,130,1);
+    box-shadow: 4px 2px 23px 6px rgba(130,130,130,1);
+}
+
+
+.categoria{
+    width: 91%;
+    overflow: hidden;
+}
+
+
+
+.categoria img{
+    
+    width: auto;
+    height: 100%;
+    float: left;
+    
+}
+
+.textoCategorias{
+    text-align: left;
+    color: #444;
+    float: left;
+    float:left;
+    font-weight: 600;
+}
+
+
+
+@media only screen and (min-width:500px){
+    .ventanaCategorias{
+        width: 60%   
+    }
+    .categoria{
+        height: 60px;
+        margin: 5% 0 0 10%;
+    }
+    
+    .textoCategorias{
+        font-size: 1.4rem;
+        line-height: 60px;
+        margin-left: 7%;
+    }
+    
+    .categoria:first-child{
+        margin-top:12%;
+    }
+    
+    .menusDesplegables {
+        width: 45px;
+        height: 80px
+    }
+    
+    #menuDesplegableAbajo{
+         height: 40px;
+         width: 90px;
+    }
+    
+    #ventanaCategoriasDer{
+         width: 70%  
+    }
+}
+
+
+@media only screen and (max-width:500px){
+    .ventanaCategorias{
+        width: 70%   
+    }
+    .categoria{
+        height: 40px;
+        margin: 5% 0 0 5%;
+    }
+    
+    .textoCategorias{
+        font-size: 0.90rem;
+        line-height: 40px;
+        margin-left: 4%;
+    }
+    
+    .categoria:first-child{
+        margin-top:15%;
+    }
+    
+    .menusDesplegables {
+        width: 24px;
+        height: 44px
+    }
+    
+    #menuDesplegableAbajo{
+        height: 24px;
+        width: 50px;
+    }
+    
+    #ventanaCategoriasDer{
+         width: 80%  
+    }
+}
+@media only screen and (max-width: 350px){
+    .ventanaCategorias{
+        width: 70%   
+    }
+    .categoria{
+        height: 40px;   
+    }
+    
+    .textoCategorias{
+        font-size: 0.8rem;
+        line-height: 40px;
+        margin-left: 4%;
+    }
+    .categoria:first-child{
+        margin-top:20%;
+    }
+}
+
+
+/**********************************************************************************************************************************************
+                                                        Menu Despliegue Derecha
+**********************************************************************************************************************************************/
+
+
+#menuDesplegableDer{
+    right:0;
+    background-image: url(../imagenes/flecha_menu_2.png);
+    border-radius: 6px 0 0 6px;
+    -webkit-box-shadow: -2px 1px 23px 6px rgba(130,130,130,1);
+    -moz-box-shadow: -2px 1px 23px 6px rgba(130,130,130,1);
+    box-shadow: -2px 1px 23px 6px rgba(130,130,130,1);
+}
+
+#tituloColegiosCercanos{
+    margin: 15% 0 0 5%;
+    color: #333;
+}
+
+#contenedorColegiosCercanos{
+    width: 95%;
+    height: 90%;
+    margin-left: 5%;
+    overflow-y:scroll;
+}
+
+#lineaTitulo{
+    
+    width:60%;
+    height:auto;
+    border-bottom: solid 1px #333;
+    margin:1% 0 0 5%;
+}
+
+.contenedorColegio{
+    width:100%;
+    height: auto;
+    margin-top: 7%;
+}
+
+.tipoColegio{
+    width: 8%;
+    background-image: url(../imagenes/oficial.png);
+    background-position: center;
+    background-size: auto 100%;
+    background-repeat: no-repeat;
+    float: left;
+    margin-top: 2%;
+}
+
+.infoColegio{ 
+    margin-left:13%;
+    width: 80%;
+    height: auto;      
+}
+
+.infoColegio h3{
+    color: #03738B;
+}
+
+
+
+.distanciaColegio{
+    margin-top: -5%;
+    color: #03738B;
+}
+
+
+
+#scrollBajar{
+    position:absolute;
+    width: 100%;
+    height: 7%;
+    background: url(../imagenes/scroll1.png) no-repeat center bottom white;
+    background-size: 13% auto;
+    left:0;
+}
+
+#scrollSubir{
+    position:absolute;
+    width: 100%;
+    height: 10%;
+    background: url(../imagenes/scroll2.png) no-repeat center bottom white;
+    background-size: 13% auto;
+    left:0;
+    top:0;
+    display:none;
+}
+
+@media only screen and (min-width:500px){
+
+    .distanciaColegio {
+        font-size: 1.3rem;
+    }
+    
+    .direccionColegio{
+        margin-top: -25px;
+        font-size: 1.5rem;    
+    }
+    
+    .infoColegio h3{
+        font-size: 1.5rem;
+    }
+    
+    #tituloColegiosCercanos{
+          font-size:2.2rem;
+    }
+    
+    .tipoColegio{
+        height: 50px;
+    }
+    
+    #scrollBajar{
+        bottom: 14%;
+    }
+}
+@media only screen and (max-width:500px){
+    
+    .distanciaColegio {
+        font-size: 0.9rem
+    }
+    
+    .direccionColegio{
+        margin-top: -13px;
+        font-size: 0.8rem;
+    }
+    
+    .infoColegio h3{
+        font-size: 0.9rem;
+    }
+    
+    #tituloColegiosCercanos{
+          font-size:1.4rem;
+    }
+    
+    .tipoColegio{
+        height: 25px;
+    }
+    
+    #scrollBajar{
+        bottom: 12%;
+    }
+}
+
+@media only screen and (max-width:350px){
+    
+    #tituloColegiosCercanos{
+          font-size:1.2rem;
+    }
+    
+}
+/**********************************************************************************************************************************************
+                                                        Menu Despliegue Abajo
+**********************************************************************************************************************************************/
+
+#menuDesplegableAbajo{
+    left:44%;
+    background-image: url(../imagenes/flecha_menu_3.png);
+    top:auto;
+    background-size: 60% auto;
+    border-radius: 6px 6px 0 0;
+    -webkit-box-shadow: 0px -8px 15px 0px rgba(117,110,117,1);
+    -moz-box-shadow: 0px -8px 15px 0px rgba(117,110,117,1);
+    box-shadow: 0px -8px 15px 0px rgba(117,110,117,1);
+}
+
+
+.ventanaCategorias{
+    height:100%;
+    position:absolute;
+    background-color: white;
+    z-index:300;
+    display:none;
+}
+
+#ventanaCategoriasIzq{
+    left:0;
+     -webkit-box-shadow: 4px 2px 23px 6px rgba(130,130,130,1);
+    -moz-box-shadow: 4px 2px 23px 6px rgba(130,130,130,1);
+    box-shadow: 4px 2px 23px 6px rgba(130,130,130,1);
+}
+
+#ventanaCategoriasDer{
+    right:0;
+    -webkit-box-shadow: -2px 1px 23px 6px rgba(130,130,130,1);
+    -moz-box-shadow: -2px 1px 23px 6px rgba(130,130,130,1);
+    box-shadow: -2px 1px 23px 6px rgba(130,130,130,1);
+}
+
+.colegioAgregado {
+    font-size: 0.9rem;
+    font-weight: bold;
+    color: #666;
+    width: 85%;
+    margin: 3% 0 4% 0;
+}
+
+.imagenControlSede{
+	position: absolute;
+	width: 5%;
+	right: 6%;
+	margin-top: -3px;
+}
+.imagenControlSede:hover{
+	cursor:pointer;
+}	
+
+#ventanaCategoriasAbajo{
+    position: absolute;
+    width: 100%;    
+    bottom: 30px;
+    background-color: #CACACA;
+    z-index: 200;
+    display: none;
+    padding-top: 0.8%;
+}
+
+.botonesAbajo{
+    height: 81%;
+    width: 24%;
+    border-radius: 6px;
+    background-color: #DBDBDB;
+    margin-left: 2%;
+    float: left;
+    margin-top: 0.5%;
+}
+
+
+#retraer{
+    width: 15%;
+    height: 100.8%;
+    background-color: #01B4ED;
+    margin-left: 2%;
+    margin-top:-0.8%;
+    float: left;
+    background-image:url(../imagenes/flechBlanca.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: auto 50%;
+    display:flex;
+}
+
+.textoAbajo{
+    width: 78%;
+    height:100%;
+    text-align: center;
+    line-height: 30px;
+    margin:auto;
+}
+.imagenesAbajo{
+    width:22%;
+    height: 100%;
+    background-image:url(../imagenes/oficial.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    float:left;
+    margin:auto;
+}
+
+#imagen2Abajo{
+    position: absolute;
+    background-image: url(../imagenes/no-oficial.png);
+    right: 16%;
+    top: 4%;
+    width: 10%;
+}
+
+
+@media only screen and (min-width:500px){
+    #ventanaCategoriasAbajo{
+        height: 45px;
+    }
+    
+    .textoAbajo{
+        font-size:1.3rem;
+    }
+    
+    .imagenesAbajo{
+        background-size: 80% auto;
+    }
+    
+    #imagen2Abajo{
+        background-size: 40% auto;
+    }
+    
+    #imagenAuxiliar{
+        background-size: 64% auto;
+    }
+}
+
+@media only screen and (max-width:500px){
+    #ventanaCategoriasAbajo{
+        height: 35px;
+    }
+    
+    .textoAbajo{
+        font-size:0.7rem;
+    }
+    
+    .imagenesAbajo{
+        background-size: 105% auto;
+    }
+    
+    #imagen2Abajo{
+        background-size: 55% auto;
+    }
+    
+    #imagenAuxiliar{
+        background-size: 88% auto;
+    }
+}
+
+/*******************************************************************************************************************************************
+                                                BÚSQUEDA AVANZADA
+*******************************************************************************************************************************************/
+
+#busqueda{
+    height: auto;
+    width: 100%;	
+    position: absolute;
+    z-index: 1000;
+	transition: all 0.5s ease-in-out;
+	background-color: white;
+	overflow-y: auto;
+    overflow-x: hidden;
+	padding-bottom: 4%;
+	-webkit-box-shadow: -1px -7px 18px -4px rgba(0,0,0,0.75);
+	-moz-box-shadow: -1px -7px 18px -4px rgba(0,0,0,0.75);
+	box-shadow: -1px -7px 18px -4px rgba(0,0,0,0.75);
+}
+
+#contenidoBusqueda{
+    width:90%;
+    height:auto;
+    margin-left:5%;
+}
+
+#busqueda h2{
+    
+    color:#2B90AB;
+    margin-bottom: 3%;
+}
+
+#contenidoBusqueda input{
+    background-color: #00B5EC;
+    border-radius: 6px;
+    width: 97%;
+    margin-top: 5px;
+    color: white;
+    padding: 0 4px 0 3%;
+    border: none;
+}
+
+#selectores{
+    width: 100%;
+    height: 45px;
+}
+
+.textoSelectores{
+    
+    line-height: 35px;
+    padding-right: 10px;
+    float: left;      
+    font-weight: bold;
+    
+}
+
+.botonRadio{
+  
+    background: #fcfff4;
+    background: -webkit-linear-gradient(top, #fcfff4 0%, #dfe5d7 40%, #b3bead 100%);
+    background: -moz-linear-gradient(top, #fcfff4 0%, #dfe5d7 40%, #b3bead 100%);
+    background: -o-linear-gradient(top, #fcfff4 0%, #dfe5d7 40%, #b3bead 100%);
+    background: -ms-linear-gradient(top, #fcfff4 0%, #dfe5d7 40%, #b3bead 100%);
+    background: linear-gradient(top, #fcfff4 0%, #dfe5d7 40%, #b3bead 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fcfff4', endColorstr='#b3bead',GradientType=0 );
+    float: left;
+    -webkit-border-radius: 50px;
+    -moz-border-radius: 50px;
+    border-radius: 50px;
+    -webkit-box-shadow: inset 0px 1px 1px white, 0px 1px 3px rgba(0,0,0,0.5);
+    -moz-box-shadow: inset 0px 1px 1px white, 0px 1px 3px rgba(0,0,0,0.5);
+    box-shadow: inset 0px 1px 1px white, 0px 1px 3px rgba(0,0,0,0.5);
+    position: relative;
+}
+
+.botonRadio label {
+    cursor: pointer;
+    position: absolute;
+    -webkit-border-radius: 50px;
+    -moz-border-radius: 50px;
+    border-radius: 50px;
+
+    -webkit-box-shadow: inset 0px 1px 1px rgba(0,0,0,0.5), 0px 1px 0px rgba(255,255,255,1);
+    -moz-box-shadow: inset 0px 1px 1px rgba(0,0,0,0.5), 0px 1px 0px rgba(255,255,255,1);
+    box-shadow: inset 0px 1px 1px rgba(0,0,0,0.5), 0px 1px 0px rgba(255,255,255,1);
+
+    background: -webkit-linear-gradient(top, #222 0%, #45484d 100%);
+    background: -moz-linear-gradient(top, #222 0%, #45484d 100%);
+    background: -o-linear-gradient(top, #222 0%, #45484d 100%);
+    background: -ms-linear-gradient(top, #222 0%, #45484d 100%);
+    background: linear-gradient(top, #222 0%, #45484d 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#222', endColorstr='#45484d',GradientType=0 );
+}
+
+.botonRadio label:after {
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+    filter: alpha(opacity=0);
+    opacity: 0;
+    content: '';
+    position: absolute;
+    background: #9EC314;
+    background: #9EC314;
+    -webkit-border-radius: 50px;
+    -moz-border-radius: 50px;
+    border-radius: 50px;
+    -webkit-box-shadow: inset 0px 1px 1px white, 0px 1px 3px rgba(0,0,0,0.5);
+    -moz-box-shadow: inset 0px 1px 1px white, 0px 1px 3px rgba(0,0,0,0.5);
+    box-shadow: inset 0px 1px 1px white, 0px 1px 3px rgba(0,0,0,0.5);
+}
+
+.botonRadio label:hover::after{
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=30)";
+    filter: alpha(opacity=30);
+    opacity: 0.3;
+}
+
+.botonRadio input[type=checkbox]:checked + label:after {
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+    filter: alpha(opacity=100);
+    opacity: 1;
+}
+
+.botonRadio input[type=checkbox] {
+    visibility: hidden;
+}
+
+
+.select-style {
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    overflow: hidden;
+}
+
+.select-style select {
+    background-color: #00B5EC;
+    border-radius: 6px;
+    width: 100%;
+    margin-top: 5px;
+    color: white;
+    padding: 0 4px 0 3%;
+    border: none;
+}
+
+.select-style select:focus {
+    outline: none;
+}
+
+.botonesBusqueda{
+    width: 40%;
+    background-color: #B6134E;
+    color: white;
+    float: left;
+	margin-top: 50px;
+}
+
+.textoBotonesBusqueda{
+    text-align: center;
+}
+
+@media only screen and (min-width:500px){
+    
+    #busqueda h2{
+        font-size: 2.3rem;   
+    }
+    
+    .opcionesBusqueda {
+        font-size: 1.4rem;
+    }
+    
+    #contenidoBusqueda input{
+        height: 40px;
+        font-size: 1.6rem;
+    }
+    
+    .botonRadio{
+        width:35px;
+        height:35px;
+        margin: 0 0 0 2%;
+    }
+    
+    .botonRadio label {
+        width: 25px;
+        height: 25px;
+        left: 5px;
+        top: 4px;
+    }
+    
+    .botonRadio label:after {
+		width: 20px;
+		height: 20px;
+		margin-top: 2px;
+		margin-left: 2px;
+    }
+    
+    
+    .botonesBusqueda {
+        margin-top: 50px;
+        height: 50px;
+        font-size: 1.7rem;
+    }
+    
+    .textoBotonesBusqueda{
+        line-height: 50px; 
+    }
+    .textoSelectores {
+        font-size:1.4rem;   
+    }
+    .select-style select {
+        font-size:1.6rem;
+        height: 40px;
+    }
+    
+}
+
+@media only screen and (max-width:500px){
+
+    #busqueda h2{
+        font-size: 1.3rem;  
+		margin: 1% 0 1% 4%;
+    }
+    
+    .opcionesBusqueda {
+        font-size: 0.7rem;
+    }
+    
+    #contenidoBusqueda input{
+        height: 30px;
+        font-size: 1rem;
+    }
+    
+    .botonRadio{
+		width: 18px;
+		height: 18px;
+		margin: 7px auto;
+		margin-right: 10%;
+    } 
+    
+    .botonRadio label {
+        width: 13px;
+		height: 13px;
+		left: 3px;
+		top: 2px;
+    }
+    
+    .botonRadio label:after {
+        width: 11px;
+		height: 11px;
+		margin-top: 1px;
+		margin-left: 1px;
+    }
+    
+    .botonesBusqueda {
+        margin-top: 10px;
+        height: 35px;
+        font-size: 0.9rem;
+    }
+    
+    .textoBotonesBusqueda{
+        line-height: 35px; 
+    }
+    
+    .textoSelectores {
+        font-size: 0.7rem;;   
+    }
+    
+    .select-style select {
+        font-size:1rem;
+        height: 30px;
+    }
+    
+}    
+@media only screen and (max-width:330px){
+	.botonRadio{
+		width: 18px;
+		height: 18px;
+		margin: 7px auto;
+		margin-right: 3%;
+    } 
+
+}
+
+/**********************************************************************************************************************************************
+                                                            BARRA SESIÓN
+**********************************************************************************************************************************************/
+
+
+
+
+#barraSesion{
+    
+    height: 100%;
+    width: 70%;
+    z-index: 900;
+    background-color: white;
+    position:absolute;
+    left:0;
+    top:0;
+    display:none;
+}
+
+#cambiarmapa{
+    height: 45px;
+    width: 90%;
+    border-bottom: #C4C4C4 solid 4px;
+    cursor: pointer;
+    padding: 10px 10px;
+    margin-top: 16%;
+}
+
+#textonmapa{
+    line-height: 45px;
+    width: auto;
+    float: left;
+    padding-left: 3%;
+}
+
+@media only screen and (min-width:500px){
+
+    #textonmapa{
+      font-size: 1.1rem;
+    }
+}
+
+@media only screen and (max-width:500px){
+
+    #textonmapa{
+      font-size: 0.8rem;
+    }
+}
+
+
+#perfil{
+    
+    width:100%;
+    height:60px;
+    display:none;
+    padding-bottom: 2%;
+    border-bottom: solid 2px #C4C4C4;   
+}
+
+#fotoUsuario{
+    width: 20%;
+    height: 90%;
+    margin-top: 2%;
+    background: url(../imagenes/bus.png) no-repeat center;
+    background-size: auto 100%;
+    float: left;
+}
+
+#textoUsuario{
+    width: 75%;
+    height: 80%;
+    float: left;
+    margin-left: 5%;
+}
+
+
+
+@media only screen and (min-width:500px){
+    
+    #textoUsuario{
+        margin-top:3%;   
+    }
+    
+    #perfil p{
+       font-size:1.3rem;
+       margin-top: -6%;
+    }
+}
+
+@media only screen and (max-width:500px){
+    
+    #textoUsuario{
+        margin-top:6%;   
+    }
+    
+    #perfil p{
+		font-size:1rem;
+		margin-top: -9%;   
+		overflow: hidden;
+		height: 1.3rem;
+    }
+}
+
+#nombreUsuario{
+    color: #52B8DA !important;
+    margin-top:0% !important;
+}
+
+#terminosUso{
+    margin-top: 10%;
+    height: 30px;
+    width: 70%;
+    margin-left: 15%;
+}
+
+/**********************************************************************************************************************************************
+                                                    INFORMACIÓN ESPECÍFICA COLEGIO
+**********************************************************************************************************************************************/
+
+
+#infoColeEsp{ 
+    width: 100%;
+    height: 65%;
+    background-color: white;
+    -webkit-box-shadow: 0px -8px 15px 0px rgba(117,110,117,1);
+    -moz-box-shadow: 0px -8px 15px 0px rgba(117,110,117,1);
+    box-shadow: 0px -8px 15px 0px rgba(117,110,117,1);
+    bottom: 3%;
+    position: absolute;
+    z-index:900;
+    overflow: hidden;
+   display:none;
+}
+
+#barraTitulo{
+    height: 10%;
+    width:100%;
+    background-color: #01B4ED;
+    float:left;
+}
+
+#barraTitulo h1{ 
+    text-align: center;
+    margin: 0.5% 2%;
+    color: white;
+}
+
+@media only screen and (min-width:500px){    
+    
+    #barraTitulo h1{ 
+        font-size: 1.5rem;
+    }
+}
+
+@media only screen and (max-width:500px){
+
+    #barraTitulo h1{ 
+        font-size: 1rem;
+    }
+
+}
+
+@media only screen and (max-width:350px){
+    
+    #barraTitulo h1{ 
+        font-size: 0.8rem;
+    }
+}
+
+.selectores{
+    width:  20%;
+	float: left;
+    -moz-box-shadow: 0px 0px 14px #000000;
+    -webkit-box-shadow: 0px 0px 14px #000000;
+    box-shadow: 0px 0px 14px #000000;
+    opacity: 0.6;
+	cursor: pointer;
+    background-image: -moz-linear-gradient(top, #ffffff, #cbcbcb);
+    background-image: -ms-linear-gradient(top, #ffffff, #cbcbcb);
+    background-image: -o-linear-gradient(top, #ffffff, #cbcbcb);
+    background-image: -webkit-gradient(linear, center top, center bottom, from(#ffffff), to(#cbcbcb));
+    background-image: -webkit-linear-gradient(top, #ffffff, #cbcbcb);
+    background-image: linear-gradient(top, #ffffff, #cbcbcb);
+    height:20%;
+    overflow: hidden;
+    
+}
+
+.imagenSelectores{
+    
+    width:100%;
+    height:70%;
+    background: url(../imagenes/mananad.png) no-repeat center;
+    background-size: auto 130%;
+
+}
+
+.letrasSelectores{
+   width:100%;
+   height:30%; 
+    text-align: center;
+    font-size: 0.6rem;
+}
+
+#contenidoInfoCole{
+    width: 100%;
+    height: 59%;
+    background-color: white;
+    float:left;
+    overflow: auto;
+	margin-top:4%;
+}
+
+.botonesInfoColegios{
+    width: 31%;
+    float: left;
+    cursor: pointer;
+    padding-left: 2%;
+}
+@media screen and (min-width: 700px) {
+	.botonesInfoColegios{
+		margin-bottom: 20px;
+	}
+}
+@media screen and (max-width: 700px) {
+	.botonesInfoColegios{
+		margin-bottom: 0px;
+	}
+}
+    
+
+.campodetextos img{
+    height: 30px; 
+    float: left;
+}
+
+.nombreBoton{
+    float: left;
+    line-height: 25px;
+	height:56%;
+}
+
+@media only screen and (min-width:500px){
+    
+    .nombreBoton{
+        font-size:0.9rem;   
+    }
+    .letrasSelectores{
+        
+        font-size: 0.8rem;
+    }
+}
+
+@media only screen and (max-width:500px){
+    
+    .nombreBoton{
+        font-size:0.6rem;   
+    }
+    .letrasSelectores{
+        
+        font-size: 0.6rem;
+    }
+}
+
+@media only screen and (max-width:350px){
+    
+    .nombreBoton{
+        font-size:0.53rem; 
+		margin-left: 2%;	
+    }
+    
+    .letrasSelectores{
+        
+        font-size: 0.5rem;
+    }
+}
+
+
+
+.contenidoIdentificacion{
+    width: 93%;
+    height: auto;
+    margin-left: 7%;
+    margin-top: 2%;
+    padding-bottom: 3%;
+    color:#01B4ED;
+    display:none;
+}
+
+
+
+/**********************************************************************************************************************************************
+                                                      IDENTIFICACIÓN
+**********************************************************************************************************************************************/
+
+.tituloIdenficacion{
+	width: 55%;
+	height: auto;
+	margin-bottom: 1%;
+	color: #318DA6;
+	font-size: 1.5rem;
+	float: left;
+	line-height: 1.45rem;
+}
+
+#botonAbrirFoto{
+	margin-top: -30px;
+	right: -75%;
+	width: 25%;
+	height: 40px;
+	background-color: #01B4ED;
+	display: flex;
+	position: relative;
+}
+
+#imagenAbrirFoto{
+	width: 50%;
+	height: 100%;
+	background: url(../imagenes/ojo.png) no-repeat center;
+	background-size: auto 94%;
+
+}
+
+#textoAbrirFoto{
+    width:50%;
+    height: auto;
+    font-size: 0.8rem;
+    color: white;
+    
+}
+
+@media only screen and (min-width:285px){
+    
+    #textoAbrirFoto{
+        line-height: 15px;
+		margin: 4px 0 0 4px;
+    }
+}
+
+@media only screen and (max-width:285px){
+    
+    #textoAbrirFoto{
+        line-height: 10px;
+    }
+}
+
+#popUpFotoCole{
+    position:absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(80,80,80,0.6);
+    display:none;
+}
+
+#ventanaFotoCole{
+   width:100%;
+   height: 60%;
+   background: url(../imagenes/Lighthouse.jpg) no-repeat center;
+   background-size: auto 100%;        
+}
+
+.itemsIdentificacion{
+    
+    width:100%;
+    height:auto;
+    margin-top:2%;
+    text-align: left;
+    line-height: 1.2rem;
+}
+.subtituloIdenficacion{
+    width:auto;
+    height: auto;
+    font-size:1rem;
+    /*margin-top:1%;*/
+    font-weight: bold;
+	color: #318DA6;
+}
+
+
+.contenidoIdentificacion p {
+    margin: 0;
+    width: auto;
+    overflow: hidden;
+    max-width: 93%;
+    color: black;
+    font-size: 0.85rem;
+}
+/*margin-bottom: 10px;*/
+@media screen and (min-width: 700px) {
+	.contenidoIdentificacion p {
+		margin-bottom: 10px
+	}
+}
+
+@media screen and (max    margin-bottom: 20px; width: 700px) {
+	.contenidoIdentificacion p {
+		margin-bottom: 0px
+	}
+}
+
+.itemsIdentificacion: first-child{
+    
+    margin-top:4%
+}
+
+#colegioFavorito{
+	width: 40%;
+	height: 40px;
+	float: left;
+	margin-left: 5%;
+}
+
+#estrellaColegioFavorito{
+	width: 20%;
+	height: 40px;
+	background: url(../imagenes/agregar.png) no-repeat center;
+	background-size: 80% auto;
+	float: left;
+}
+
+#agregarColegioFavorito{
+	width: 80%;
+	height: 40px;
+	font-size: 0.9rem;
+	color: #318DA6;
+}
+
+#colegioTitulo{
+	width: 92%;
+	height: 40px;
+	margin-left: 7%;
+}
+
+/*******************************************************************************************************************************************
+                                                        Características
+*******************************************************************************************************************************************/
+
+
+.listasCaracteristicas{
+	width: 85%;
+	height: 30px;
+	color: #318DA6;
+	padding-left: 10%;
+	line-height: 30px;
+	font-weight: 700;
+}
+
+.imagenEstudiantes, .imagenEstudiantes2{
+	position: relative;
+	height: 100%;
+	width: 10%;
+	background: url(../imagenes/flecha_azul.png) no-repeat center;
+	background-size: auto 75%;
+	left: 85%;
+	top: -30px;
+}
+
+
+.imagenEstudiantes2 {
+    background: url(../imagenes/trianguloabajo.png) no-repeat center;
+    background-size: auto 33%;
+    left: 89%;
+    top: -3%;
+}
+
+
+#plegarNumero{
+    background: url(../imagenes/trianguloabajo.png) no-repeat center;
+    background-size: auto 30%;
+    top: -2px;
+}
+
+.tablacarac{
+	width: 95%;
+	height: 150px;
+	overflow: hidden;
+	display: none;
+}
+.columnaSuperior{
+    width:95%;
+    height:60px;
+    background-color: #01B4ED;
+}
+
+
+.columnaSuperior h2{
+    margin: 0 0 0 5%;
+    color: white;
+    line-height: 60px;
+    float: left;
+    
+}
+
+@media only screen and (min-width:500px){
+    .columnaSuperior h2{
+        font-size: 1.5rem;
+    }
+}
+
+@media only screen and (max-width:500px){
+    .columnaSuperior h2{
+        font-size: 1.1rem;
+    }
+}
+
+@media only screen and (max-width:500px){
+    .columnaSuperior h2{
+        font-size: 0.9rem;
+    }
+}
+
+.filaTabla{
+    margin-top: 1%;
+    width: 35%;
+    height: auto;
+    background-color: #01B4ED;
+    float: left;
+    overflow: hidden;
+}
+
+.filaIzq{
+    
+   background-color:#CDEAFB;
+    margin-left: 1%;
+    width:59%;
+    height:auto;
+}
+
+.celdaTabla{
+    
+    width:100%;
+    height:60px;
+}
+
+.celdaTabla2{
+    
+    width:100%;
+    height:60px;
+}
+
+.celdaImagen{
+    width: 25%;
+    height: 90%;
+    background: url(../imagenes/manana3.png) no-repeat center;
+    background-size: auto 47%;
+    margin-left: 5%;
+    float: left;
+}
+
+
+.celdaTexto{
+    height: 60px;
+    color: white;
+    font-size: 0.9rem;
+    line-height: 60px;
+    text-align: center;
+}
+
+.celdaTexto2{
+    height: 60px;
+    color: white;
+    font-size: 0.9rem;
+    line-height: 60px;
+    margin-left:13%;
+    
+}
+
+.celdaTabla p, .celdaTabla2 p{
+    margin-left: 15%;
+    color: black;
+    line-height: 60px;
+}
+
+
+.botonPresionado{
+    
+    background:#AAA;
+    opacity:1;
+}
+
+.tresBarras{
+	fill: #DDD;
+
+}
+
+.tresBarras:hover {
+  fill: #22AACC;
+}
+
+
+.d3-tip {
+			line-height: 1;
+			font-weight: bold;
+			padding: 12px;
+			background-color: #336699;
+			color: #fff;
+			border-radius: 2px;	
+			z-index:1000;
+}
+
+
+.d3-tip:after {
+  box-sizing: border-box;
+  display: inline;
+  font-size: 10px;
+  width: 100%;
+  line-height: 1;
+  color: rgba(0, 0, 0, 0.8);
+  content: "\25BC";
+  position: absolute;
+  text-align: center;
+}
+
+
+.d3-tip.n:after {
+  margin: -1px 0 0 0;
+  top: 100%;
+  left: 0;
+}
+
+#infoSicole p{
+	padding: 0 10px;
+}
+
+#volverrecorr{
+	padding: 0;
+}
+
+.colegiosDistancia{
+	font-size: 0.8rem;	
+}
+
+#busquedacolegio{
+	margin-left: 0%;
+	width: 90%;
+	margin-top: 3%;
+	height: 30px;
+	font-size: 0.9rem;
+} 
+
+.botonConfirmar{
+	width: 43%;
+	height: 28px;
+	margin: 2% 0 0 6%;
+	background-color: #B6134E;
+	border-radius: 6px;
+	text-align: center;
+	color: white;
+	line-height: 28px;
+	padding-bottom: 0px;
+}
+	
+.botonConfirmar:hover{
+	cursor: pointer;
+}
+
+
+#ui-id-1{
+	width: 70% !important;
+	left:0;
+    font-family: "Open Sans",Arial, Helvetica, sans-serif;
+    border:1px solid silver;
+    float:right;
+    margin-top:11%;
+    position:absolute;
+    z-index: 999;
+    overflow: hidden;
+    background-color: white;
+	box-shadow: 1px 1px 3px black;
+}
+
+#ui-id-1 a{
+    
+    width:92%;
+    font-size:0.8rem;
+	padding-top: 12px !important;
+	
+}
+
+.ui-menu-item:hover{
+	background-color: #E0F0FF !important;
+}
+
+.imagenUbicador{   
+    height: 25px;
+    width: 45px;
+    float: left;
+    background-image: url(../imagenes/ubicador.png);
+    background-repeat: no-repeat;
+    background-size: 67% auto;
+    background-position: top;
+    margin-top: 12px;
+    margin-left: -2%;
+}
+
+.divpresent{
+	cursor: pointer;
+	height: 80px;
+	position:relative;
+	overflow: hidden;
+	background: #FFF; padding: 15px;
+	-moz-box-shadow: 0px 0px 15px #000000;
+	-webkit-box-shadow: 0px 0px 15px #000000;
+	box-shadow: 0px 0px 15px #000000;
+	background-image: -moz-linear-gradient(top, #ffffff, #cbcbcb);
+	background-image: -ms-linear-gradient(top, #ffffff, #cbcbcb);
+	background-image: -o-linear-gradient(top, #ffffff, #cbcbcb);
+	background-image: -webkit-gradient(linear, center top, center bottom, from(#ffffff), to(#cbcbcb));
+	background-image: -webkit-linear-gradient(top, #ffffff, #cbcbcb);
+	background-image: linear-gradient(top, #ffffff, #cbcbcb);'
+}

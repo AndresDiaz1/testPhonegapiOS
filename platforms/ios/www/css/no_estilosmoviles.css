@@ -1,0 +1,1589 @@
+.iconosBusqueda{
+	width: 50px;
+	height: 35px;
+	background: url(../imagenes/mujer1.png) no-repeat center;
+	background-size: 60% auto; 
+	float: left;
+}
+
+.lineaDivisoriaCat{
+	width: 90%;
+	height: 3px;
+	border-bottom: 2px solid #B6134E;
+	margin: 4% 0 0 5%;
+} 
+
+.contenedorredesEsp{
+	width:95%;
+	height:auto;
+}
+
+#favoritosSede{
+	height: auto;
+	width:100%;
+	border-bottom: rgb(25, 179, 233) solid 3px
+}
+
+#favoritosSede p{
+	font-size: 0.92rem;
+	margin-bottom: 2%
+}
+#agregarSede{
+	margin-top: 3%;
+	margin-left: 5%;
+	width: 90%; 
+}
+#agregarSede label{
+	font-weight: 500;
+	font-size: 0.9rem;
+}
+
+/****************************************************************************************************************
+												NUEVA ENCUESTA
+*****************************************************************************************************************/
+#movilesFormulario p{
+	margin-top: 10%;
+}
+
+.appEncuesta p{
+	color: #52B8DA;
+	font-weight: bold;
+}
+
+#movilesFormulario label {
+  display: inline-block;
+}
+
+.encuestaOculta{
+	display: none;
+}
+
+#avisoConvivencia{
+	width: 100%;
+	margin-top: 30px;
+	height: 100px;
+	display:none;
+	font-size: 1rem;
+	color: #52B8DA;
+	text-align: center;
+}
+/*
+form input:required {
+	border: red solid 1px;
+	outline: 1px solid red;
+}*/
+
+#encabezadoInstitucion a{
+	color: #52B8DA;
+	text-decoration: underline;
+}
+
+#encabezadoInstitucion a:hover{
+	cursor:pointer;
+}
+
+
+.squaredOne {
+	background: red;
+	float: left;
+	background: -webkit-linear-gradient(top, #fcfff4 0%, #dfe5d7 40%, #b3bead 100%);
+	background: -moz-linear-gradient(top, #fcfff4 0%, #dfe5d7 40%, #b3bead 100%);
+	background: -o-linear-gradient(top, #fcfff4 0%, #dfe5d7 40%, #b3bead 100%);
+	background: -ms-linear-gradient(top, #fcfff4 0%, #dfe5d7 40%, #b3bead 100%);
+	background: linear-gradient(top, #fcfff4 0%, #dfe5d7 40%, #b3bead 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fcfff4', endColorstr='#b3bead',GradientType=0 );
+	-webkit-box-shadow: inset 0px 1px 1px white, 0px 1px 3px rgba(0,0,0,0.5);
+	-moz-box-shadow: inset 0px 1px 1px white, 0px 1px 3px rgba(0,0,0,0.5);
+	box-shadow: inset 0px 1px 1px white, 0px 1px 3px rgba(0,0,0,0.5);
+	position: relative;
+}
+
+.squaredOne label {
+	cursor: pointer;
+	position: absolute;
+	-webkit-box-shadow: inset 0px 1px 1px rgba(0,0,0,0.5), 0px 1px 0px rgba(255,255,255,1);
+	-moz-box-shadow: inset 0px 1px 1px rgba(0,0,0,0.5), 0px 1px 0px rgba(255,255,255,1);
+	box-shadow: inset 0px 1px 1px rgba(0,0,0,0.5), 0px 1px 0px rgba(255,255,255,1);
+	/*
+	background: -webkit-linear-gradient(top, #222 0%, #45484d 100%);
+	background: -moz-linear-gradient(top, #222 0%, #45484d 100%);
+	background: -o-linear-gradient(top, #222 0%, #45484d 100%);
+	background: -ms-linear-gradient(top, #222 0%, #45484d 100%);
+	background: linear-gradient(top, #222 0%, #45484d 100%);
+	*/
+	background-color: #727272;
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#222', endColorstr='#45484d',GradientType=0 );
+}
+
+.squaredOne label:after {
+	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+	filter: alpha(opacity=0);
+	opacity: 0;
+	content: '';
+	position: absolute;
+	background: #B6134E;
+	
+
+	-webkit-box-shadow: inset 0px 1px 1px white, 0px 1px 3px rgba(0,0,0,0.5);
+	-moz-box-shadow: inset 0px 1px 1px white, 0px 1px 3px rgba(0,0,0,0.5);
+	box-shadow: inset 0px 1px 1px white, 0px 1px 3px rgba(0,0,0,0.5);
+}
+
+
+.squaredOne label:hover::after {
+	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=30)";
+	filter: alpha(opacity=30);
+	opacity: 0.3;
+}
+
+.squaredOne input[type=checkbox]:checked + label:after {
+	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+	filter: alpha(opacity=100);
+	opacity: 1;
+}
+
+
+@media screen and (min-width: 700px) {
+	.squaredOne {
+		width: 25px;
+		height: 25px;
+	}	
+	.squaredOne label {
+		width: 16px;
+		height: 16px;
+		left: 5px;
+		top: 4px;
+	}
+	.squaredOne label:after {
+		width: 13px;
+		height: 13px;
+		top: 1px;
+		left: 2px;
+	}
+}
+
+@media screen and (max-width: 700px) {
+	.squaredOne {
+		width: 20px;
+		height: 20px;
+	}	
+	.squaredOne label {
+		width: 14px;
+		height: 14px;
+		left: 3px;
+		top: 3px;
+	}
+	.squaredOne label:after {
+		width: 12px;
+		height: 12px;
+		top: 1px;
+		left: 1px;
+	}
+}
+
+
+#contenedorHorarios{
+    margin-left: 15%;
+    height: 35%;
+    margin-top: 16%;
+	width: 85%;
+}
+
+.textoCheck{
+	margin-top: 0%;
+	margin-left: 12%;
+	position: absolute;
+}
+
+.checkbox2{
+	width: 100%;
+	height: 45px;	
+}
+@media screen and (max-width: 700px) {
+	.indicadorOtrosFiltros{
+		margin-top: 4%;
+	}
+}
+
+@media screen and (max-width: 700px) {
+	.indicadorOtrosFiltros{
+		margin-top: 7%;
+	}
+}
+
+	
+.inputsLogin{
+	background-color: #3AB8DA;
+	border-radius: 8px;
+	border-style: none;
+	width: 96%;
+	font-size: 0.9rem;
+	color: white;
+	padding-left: 3%;
+	margin-top: 1%;
+	margin-bottom: 2%;
+	height: 31px;
+}
+#iniciar label{
+	font-size: 0.85rem;
+	font-weight: 500;
+}
+
+#caracteristicaSexo{
+	width: 32%;
+}
+
+@media screen and (min-width: 700px) {
+	#caracteristicaSexo{
+		height: 200px;
+		margin: -30% 0px 0px 32%;
+	}
+	#textoSexo{
+		font-size: 1.2rem;
+	}	
+}
+@media screen and (max-width: 700px) {
+	#caracteristicaSexo{
+		height: 100px;
+		margin: -36% 0px 0px 32%;
+	}
+	
+	#textoSexo{
+		font-size: 0.9rem;
+	}	
+}
+
+#textoSexo{
+	width: 100%;
+	color: #318DA6;
+	text-align: center;
+	line-height: 0.9rem;
+	overflow-y: hidden;
+}
+ .imagenSexo{
+	width: 100%;
+	height: 72%;
+	background: url(../imagenes/mixto.png) no-repeat center;
+	background-size: 63% auto;
+ }
+ 
+ #convivenciaEscolar h2{
+	color: #52B8DA;
+	font-size: 1rem;
+	border-bottom: #52B8DA 2px solid;
+	width: 60%;	
+}
+
+
+ .columnaGraficas{
+	width: 49%;
+	height: 92%;
+	float: left;
+	margin-top: 3%;
+ }
+ .columnaInfo{
+	width:50%;
+	border-left: 2px solid #318DA6;
+	height: 92%;
+	float: left;
+	margin-top: 3%;
+ }
+
+ .lineaGraficas{
+	width: 90%;
+	height: 3px;
+	border-bottom: 2px solid #318DA6;
+	margin-left: 5%;
+ }
+ 
+ .infoDonas{
+	margin-top: 5%;
+	width: 90%;
+	height: 20%;
+	overflow: hidden
+ }
+ 
+ .infoDonasImagen{
+	background-size: 100% auto;
+	height: 100%;
+	width: 18%;
+	margin-left: 6%;
+	float: left;
+	background: url(../imagenes/filtromanana.png) no-repeat center;
+	 
+}
+ 
+@media only screen and (min-width:700px){
+	.infoDonasImagen{
+		background-size: 60% auto;
+	}	
+}
+@media only screen and (max-width:700px){
+	.infoDonasImagen{
+		background-size: 100% auto;
+	}	
+}
+
+ .infoDonas p{
+	height: 100%;
+	width: auto;
+	margin-left: 29%;
+	text-align: left;
+	line-height: 0.6rem;
+	font-size: 0.6rem;
+	padding-top: 6%;
+ }
+ 
+ .imagenInternaDona{
+	width: 20px;
+	height: auto; 
+ }
+ 
+ .textoPromedio{
+	color: #333;
+ }
+ 
+ #contenidoCalidad h3, #contenidoRecursos h3{
+	width: 90%;
+	height: auto;
+	color: #318DA6;
+	border-bottom: 2px solid #318DA6;
+	font-size: 1rem;
+	
+ }
+ 
+ .divBarradeEstado{
+	width: 80%;
+	height: 25px;
+	border: 2px solid #318DA6;
+	margin-left: 5%;
+	border-radius: 3px;
+ }
+ 
+ .estadoBarra{
+	height: 82%;
+	width: 98%;
+	margin: 1%;
+	background-color: rgb(182, 19, 78);
+	margin-top: -12px;
+ }
+ 
+ 
+ #contenidoInfoCole output { 
+	position: relative;
+	background-image: linear-gradient(top, #444444, #B6134E);
+	width: auto;
+	height: 20px;
+	text-align: center;
+	color: color: #318DA6;;
+	border-radius: 10px;
+	display: inline-block;
+	font-size: 0.8rem;
+	bottom: 240%;
+	left: 0;
+	margin-top: 80px;
+}
+
+#contenidoInfoCole output:before{ 
+	content: "";
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    background: url(../imagenes/flechaazul.png) no-repeat center;
+    background-size: 100% auto;
+    top: 0%;
+    left: 50%;
+    margin-left: -5px;
+    margin-top: -11px;
+}
+
+.indicadorTotal{
+	width: 4px;
+	height: 150%;
+	background-color: #284D9D;
+	margin-left: 70%;
+	margin-top: -132px;
+	border-radius: 3px;
+}
+
+.divBarradeEstado p{
+	color: white !important;
+	font-size: 0.9rem !important;
+	text-align: right !important;
+	margin-left: 5% !important;
+}
+
+.leyendaBarra{
+	width: 60%;
+	height: 35px;
+	margin-left: 10%;
+}
+
+.imagenLeyendaBarra{
+	width: 12%;
+	height: 4px;
+	margin-top: 4%;
+	float: left;
+	border-radius: 3px;
+}
+
+.textoLeyendaBarra{
+	width: 83%;
+	height: 100%;
+	margin-left: 5%;
+	float: left;
+	color: #318DA6;
+	font-size: 0.9rem;
+	line-height: 0.9rem;
+}
+
+#contenidoCalidad p{
+	width: 100%;
+	text-align: center;
+	margin-top: 15px;
+	color: rgb(49, 141, 166);
+	font-size: 1rem;
+}
+
+#divcontenedorMulticolor{
+	width: 90%;
+	height: 200px;
+	overflow: hidden;
+	margin-top: 25px;
+	margin-left: 8%;
+}
+
+
+.barraMulticolor{
+	width: 40%;
+	height: 100%;
+	float: left;
+}
+
+.leyendaMulticolor{
+	width: 47%;
+	height: 100%;
+	margin-left: 5%;
+	float: left;
+}
+
+.seccionMulticolor{
+	width: 100%;
+	height: 25%;
+	overflow: hidden;
+}
+
+.imagenMulticolor{
+	width: 13%;
+	height: 36%;
+	/*background-color: #6351A7;
+	*/float: left;
+	
+	margin-left: 9%;
+}
+
+@media screen and (min-width: 700px) {
+	.imagenMulticolor{
+		margin-top: 5%;
+	}
+}
+
+@media screen and (max-width: 700px) {
+	.imagenMulticolor{
+		margin-top: 10%;
+	}
+}
+
+
+.textoMulticolor{
+	width: 69%;
+	height: 85%;
+	overflow: hidden;
+	float: left;
+	margin-left: 5%;
+	border-left: solid 1px rgb(49, 141, 166);
+}
+
+.tituloColor{
+	color: rgb(49, 141, 166);
+	margin: -3% 0px 0px 6px !important;
+	font-size: 0.8rem !important;
+}
+.textoMulticolor h2{
+	margin: -2px 0px 0px 6px;
+	font-size: 1.3rem;
+}
+
+.letrasGraficasRecursos{
+	width: 30%;
+	height: 100%;
+	float: left;
+}
+
+.graficasRecursos{
+	width: 40%;
+	height: 100%;
+	float: left;
+}
+.textoDonasRecursos{
+	width:100%;
+	height: 100px;
+	margin-top: 40%;
+}
+
+#contenidoRecursos output{
+	margin-top: 20px;
+}
+#divMascara{
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0,0,0,0.3);
+	display: none;
+	z-index: 3000;
+	position: absolute;
+}
+
+#popupConfirmar{
+	width: 60%;
+	height: auto;
+	background-color: white;
+	border-radius: 5px;
+	margin: auto;
+	padding-bottom: 11px;
+}
+
+#popupConfirmar p{
+	font-size: 1rem;
+    color: #777;
+    padding: 8px;
+    margin-bottom: 0;
+    text-align: center;
+}
+
+.confirmarBotones{
+	width: 100%;
+	height: 30px;
+	display: flex
+}
+
+.botonesConfirmar{
+	height: 30px;
+	width: 40%;
+	margin: auto;
+	background-color: #01B4ED;
+	text-align: center;
+	line-height: 30px;
+	border-radius: 7px;
+	color: white;
+	font-size: 0.9rem;
+}
+
+
+.derechosEncuestas{
+	width: 100%;
+	height:auto;
+	text-align: center;
+	color: #01B4ED;
+	font-size: 0.7rem; 
+	margin-bottom: 20px;
+}
+
+.ubicadorTransporte{
+	width:15%;
+	height:25px;
+	background: url(../imagenes/dir2.png) no-repeat;
+	background-position: center;
+	background-size: auto 100%;
+	position: absolute;
+    right: 4%;
+    margin-top: -34px;
+	opacity:0.5;
+}
+.ubicadorTransporte:hover{
+	cursor: pointer; 
+}
+
+.ubicadorTransporte2{
+	position: relative;
+	opacity:0.5;
+	background: url(../imagenes/dir2.png) no-repeat;
+	background-position: center;
+	background-size: auto 100%;
+}
+
+@media screen and (max-width: 700px) {
+	.ubicadorTransporte2{
+		width: 15%;
+		height: 25px;
+		margin-top: -34px;
+		margin-left: 86%;
+		
+	}
+}
+
+@media screen and (min-width: 700px) {
+	.ubicadorTransporte2{
+		width: 4%;
+		height: 34px;
+		margin-top: -48px;
+		margin-left: 86%;
+	}
+}
+
+@media screen and (min-width: 700px) {
+	#marker_destino{
+		margin-top: -32px;
+	}
+}
+
+
+#infocoledistancia{
+	width: 80%;
+	height: auto;
+	margin-left: 7%;
+	padding: 10px;
+	overflow-x: hidden;
+	overflow-y: auto;
+	
+	border-radius: 12px;
+	background-color: #F46708;
+	color: white;
+	display: none;
+}
+
+@media screen and (max-width: 700px) {
+	#infocoledistancia{
+		font-size: 1.2rem;
+	}
+ } 
+@media screen and (max-width: 700px) {
+	#infocoledistancia{
+		font-size: 13px;
+	}	
+}
+  
+
+.inputTiempos {
+    cursor: pointer;
+    width: 15%;
+    height: 24px;
+    float: left;
+    margin-top: 9px;
+    text-align: right;
+    padding-right: 10px;
+}
+
+.pTiempos{
+	float: left;
+	margin-left: 3%;
+	margin-top: 15px;
+	font-size: 0.8rem;
+}
+
+/****************************************************************************************************************
+												NUEVA ENCUESTA
+*****************************************************************************************************************/
+#movilesFormulario p{
+	margin-top: 10%;
+}
+
+.appEncuesta p{
+	color: #52B8DA;
+	font-weight: bold;
+}
+
+#movilesFormulario label {
+  display: inline-block;
+}
+
+.encuestaOculta{
+	display: none;
+}
+
+/***************************************************************************************************************************
+										FUNCIONALIDADES
+**************************************************************************************************************************/
+
+.contenedorLimites{
+	text-align: center;
+	width: 10%;
+	height: auto;
+	font-size: 0.6rem;
+	color: #19B3E9; 
+	float:left;
+	margin-top:10%;
+	background: no-repeat center;
+	background-size: auto 100%; 
+}
+
+.categoriasMargen{
+	margin-left: 3%;
+	width: 97%;
+	height: auto;
+	overflow-x: hidden;
+    overflow-y: auto;
+}
+
+#nombreSedeCerca{
+	font-size: 1.2rem;
+	color: rgb(1, 180, 237);
+	margin-bottom: 0px;
+	margin-top: 8%;
+	text-align: center;
+}
+#nombreCercaA{
+	display: none;
+	text-align: center;
+	margin-bottom: 11px;
+	margin-top: 5px;
+	font-size: 1.3rem
+}
+
+#flechaDespliegue{
+	width: 25px;
+	height: 25px;
+	background:  url(../imagenes/flecha_azulArriba.png) no-repeat center;
+	background-size: 100% auto;
+	position: absolute;
+	bottom: 35px;
+	left: 10px;
+	z-index: 2000;
+	display: none;
+}
+
+#flechaDespliegueAbajo {
+    width: 25px;
+	height: 25px;
+	background:  url(../imagenes/flecha_azul.png) no-repeat center;
+	background-size: 100% auto;
+	position: absolute;
+	top: 5px;
+	left: 10px;
+	z-index: 2000;
+	display: block;
+}
+
+.auxiliar{
+	width: 100%; 
+	height: auto;
+	margin-bottom: 3%;
+}
+
+.contenedorFuncionalidad  input[type=range]:focus {
+  outline: none; /* Removes the blue border. You should probably do some kind of focus styling for accessibility reasons though. */
+}
+.contenedorFuncionalidad input[type=range]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    border: none;
+    height: 16px;
+    width: 16px;
+    border-radius: 50%;
+    background: #B6134E;
+    margin-top: -4px;
+}
+
+
+/* All the same stuff for Firefox */
+.contenedorFuncionalidad input[type=range]::-moz-range-thumb {
+  height: 16px;
+  width: 16px;
+  border-radius: 50%;
+  border:none;
+  background: #B6134E;
+  cursor: pointer;
+}
+
+
+
+/* All the same stuff for IE */
+.contenedorFuncionalidad input[type=range]::-ms-thumb {
+  height: 20px;
+  width: 18px;
+  border-radius: 6px;
+  border:none;
+  background: #B6134E;
+  cursor: pointer;
+}
+
+.contenedorFuncionalidad input[type=range]::-webkit-slider-runnable-track {
+  width: 100%;
+  height: 20%;
+  cursor: pointer;
+  background: #BBE1ED;
+  border-radius: 1.3px;
+}
+
+.contenedorFuncionalidad input[type=range]:focus::-webkit-slider-runnable-track {
+  background: #BBE1ED;
+}
+
+.contenedorFuncionalidad input[type=range]::-moz-range-track {
+  width: 100%;
+  height: 20%;
+  cursor: pointer;
+  background: #BBE1ED;
+  border-radius: 1.3px;
+}
+
+.contenedorFuncionalidad input[type=range]::-ms-track {
+	width: 100%;
+	height: 20%;
+	cursor: pointer;
+	background: #BBE1ED;
+	border-color: transparent;
+}
+
+
+.contenedorFuncionalidad output { 
+	position: relative;
+	background-image: linear-gradient(top, #444444, #B6134E);
+	width: auto;
+	height: 20px;
+	text-align: center;
+	color: #333;
+	border-radius: 10px;
+	display: inline-block;
+	font-size: 0.8rem;
+	bottom: 240%;
+	left: 0;
+	margin-left: 41%;
+}
+.contenedorFuncionalidad output:after { 
+	 content: "";
+	 position: absolute;
+	 width: 0;
+	 height: 0;
+	 border-top: 10px solid #B6134E;
+	 border-left: 5px solid transparent;
+	 border-right: 5px solid transparent;
+	 top: 100%;
+	 left: 50%;
+	 margin-left: -5px;
+	 margin-top: -1px;
+}
+
+#lugaresCercanos{
+	width: 94%;
+	height: 200px;
+	margin-left: 5%;
+}
+
+.contenedorLugares{
+	width: 50%;
+	height: 30px;
+	overflow: hidden;
+	float: left;
+	margin-top: 5%;
+}
+
+.contenedorLugares:hover{
+	cursor: pointer;
+}
+
+.imagenesLugaresCercanos{
+	height: 100%;
+	width: 40px;
+	background: url(../imagenes/cerca1.png) no-repeat center;
+	background-size: auto 90%;
+	float: left;
+}
+
+#lugaresCercanos p{
+	height: 100%; 
+	width: auto;
+	color: #333 !important;
+	margin-left: 27%; 
+	font-size: 0.8rem !important;
+	line-height: 4px;
+}
+
+.botonPregunta1{
+	width: 28px;
+	height: 28px;
+	position: relative;
+	border-radius: 5px;
+	background-color: #3AB8DA;
+	color: white;
+	font-weight: bold;
+	margin-top: -28px;
+	line-height: 28px;
+	font-size: 1.2rem;
+	margin-left: 80%;
+} 
+
+#encuestaConectividad{
+	height: 100%;
+	position: absolute;
+	line-height: 47px;
+	font-weight: 600;
+	text-align: center;
+	color: white;
+	background: url(../imagenes/mobile-phone.png) no-repeat center;
+	background-size: 100% auto;
+	z-index:2000;
+	left:15%;
+}
+
+@media only screen and (min-width:700px){
+		#encuestaConectividad{
+			width: 50px;
+		}
+}
+
+@media only screen and (max-width:700px){
+		#encuestaConectividad{
+			width: 30px;
+		}
+}
+
+/***********************************************************************************************************
+												FILTROS
+*************************************************************************************************************/
+
+
+#encabezadoFiltro{
+	width: 100%;
+	margin-top: 12%;
+}
+
+.pestana{
+	width: 50%;
+	height: 100%;
+	border-radius: 10px 10px 0 0; 
+	float: left;
+	border-top: 2px solid #989898;
+	display: flex;
+	color:#01B4ED;
+	background-color:white;    
+}
+
+.sombra{
+	-webkit-box-shadow:inset 3px -3px 3px 0px rgba(0,0,0,0.55);
+	-moz-box-shadow:inset 3px -3px 3px 0px rgba(0,0,0,0.75);
+	box-shadow:inset 3px -3px 3px 0px rgba(0,0,0,0.55);
+
+}
+
+.sombra2{
+	-webkit-box-shadow:inset -3px -3px 3px 0px rgba(0,0,0,0.55);
+	-moz-box-shadow:inset -3px -3px 3px 0px rgba(0,0,0,0.75);
+	box-shadow:inset -3px -3px 3px 0px rgba(0,0,0,0.55);
+
+}
+
+.pestana:hover{
+	cursor: pointer;
+}
+
+.pestana p{
+	margin: auto;
+	margin-left: 7% !important;
+}
+
+
+#barrafiltro p{
+	font-size: 0.85rem; 
+	color: #01B4ED;
+	text-align: left;
+}
+
+.checkBoxSectores{
+	height: 30px;
+	float: left;
+}
+
+.textoSectores{
+	margin-left: 7%;
+	position: relative;
+	text-align: left;
+	float: left;
+	color: #01B4ED;
+}
+   
+	
+.imagenSectores{
+	background: url(../imagenes/oficial.png) no-repeat center;
+	background-size: auto 100%;
+	position: absolute;
+}
+
+@media screen and (min-width: 700px) {
+	.pestana p{
+		font-size: 1.3rem !important;
+	}
+	
+	#barrafiltro p{
+		font-size: 1.3rem; 
+		margin-bottom: 30px;
+		margin-bottom: 30px;
+	}
+	.checkBoxSectores{
+		width: 38%;
+	}
+	.textoSectores{
+		font-size: 1.1rem;
+	}
+	.imagenSectores{
+		width: 30px;
+		height: 30px;
+	}
+	#encabezadoFiltro{
+		height: 50px;
+	}
+	#encabezadoFiltro p{
+		line-height: 40px;
+	}	
+ }
+ 
+ @media screen and (max-width: 700px) {
+	.pestana p{
+		font-size: 0.9rem !important;
+	}
+	
+	#barrafiltro p{
+		font-size: 0.85rem;
+		margin-bottom: 20px;
+	}	
+	.checkBoxSectores{
+		width: 50%;
+	}
+	.textoSectores{
+		font-size: 0.9rem;
+	}
+	
+	.imagenSectores{
+		width: 20px;
+		height: 20px;
+	}
+	#encabezadoFiltro{
+		height: 35px;
+	}	
+}
+
+
+.imagenFiltros{
+	position: relative !important;
+	margin-left: 3%;
+	float : left;
+	right: 0 !important;
+}
+
+
+.botoneraReportes{
+	margin-left: 3%;
+	width: 97%;
+	overflow-x: hidden;
+	padding-bottom: 30px;
+}
+
+
+.lineaDivisoria{
+	width: 60%;
+	height: 3px;
+	border-bottom: 2px solid #AAA;
+	margin: 9% 0px 0px 3%;
+}
+.finalSesion{ 
+	width: 95%; border-bottom: 3px solid rgb(1, 180, 237);
+	margin-left: 0
+}
+ @media screen and (min-width: 700px) {
+	.finalSesion{
+		margin-top: 135px; 
+	}
+ }
+ 
+ @media screen and (max-width: 700px) {
+	.finalSesion{
+		margin-top: 80px; 
+	}
+ }
+ 
+.rangeFiltro{
+	height: 24px;
+	width: 80%;
+	z-index: 2000;
+	margin: 15px 0 0 0;
+	text-align:left;
+	float: left;
+}
+
+#barrafiltro input[type=range]{
+	width: 100%;
+	height: 100%;
+	margin-left: 0;
+	background-color: transparent;
+	float: left;
+	-webkit-appearance: none;
+}
+
+.auxiliar{
+	width: 100%; 
+	height: auto;
+	margin-bottom: 3%;
+}
+
+
+.ventanasCategorias input[type=range]:focus {
+  outline: none; /* Removes the blue border. You should probably do some kind of focus styling for accessibility reasons though. */
+}
+/*
+#barrafiltro input[type=range]::-webkit-slide-thumb {
+  -webkit-appearance: none;
+  width: 20px;
+  height: 18px;
+  border-radius: 7px;
+  border:none;
+  background: #B6134E;
+  cursor: pointer;
+  margin-top: -3%;
+}*/
+.ventanasCategorias input[type=range]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    border: none;
+    height: 16px;
+    width: 16px;
+    border-radius: 50%;
+    background: #B6134E;
+    margin-top: -4px;
+}
+
+
+/* All the same stuff for Firefox */
+.ventanasCategorias input[type=range]::-moz-range-thumb {
+  height: 16px;
+  width: 16px;
+  border-radius: 50%;
+  border:none;
+  background: #B6134E;
+  cursor: pointer;
+}
+
+
+
+/* All the same stuff for IE */
+.ventanasCategorias input[type=range]::-ms-thumb {
+  height: 20px;
+  width: 18px;
+  border-radius: 6px;
+  border:none;
+  background: #B6134E;
+  cursor: pointer;
+}
+
+.ventanasCategorias input[type=range]::-webkit-slider-runnable-track {
+  width: 100%;
+  height: 20%;
+  cursor: pointer;
+  background: #BBE1ED;
+  border-radius: 1.3px;
+}
+
+.ventanasCategorias input[type=range]:focus::-webkit-slider-runnable-track {
+  background: #BBE1ED;
+}
+
+.ventanasCategorias input[type=range]::-moz-range-track {
+  width: 100%;
+  height: 20%;
+  cursor: pointer;
+  background: #BBE1ED;
+  border-radius: 1.3px;
+}
+
+.ventanasCategorias input[type=range]::-ms-track {
+	width: 100%;
+	height: 20%;
+	cursor: pointer;
+	background: #BBE1ED;
+	border-color: transparent;
+}
+
+#barrafiltro output { 
+	position: relative;
+	background-image: linear-gradient(top, #444444, #B6134E);
+	width: auto;
+	height: 20px;
+	text-align: center;
+	color: #333;
+	border-radius: 10px;
+	display: inline-block;
+	font-size: 0.8rem;
+	bottom: 240%;
+	left: 0;
+	margin-left: 41%;
+}
+#barrafiltro output:after { 
+	 content: "";
+	 position: absolute;
+	 width: 0;
+	 height: 0;
+	 border-top: 10px solid #B6134E;
+	 border-left: 5px solid transparent;
+	 border-right: 5px solid transparent;
+	 top: 100%;
+	 left: 50%;
+	 margin-left: -5px;
+	 margin-top: -1px;
+}
+
+.desplegableOtroFiltro{
+	width: 100%;
+    height: 45px;
+    overflow-y: hidden;
+	border-bottom: #01b4ed solid 2px;
+}
+
+.desplegableOtroFiltro:hover{
+	cursor: pointer;
+}
+
+.imagenDespliegueOtros{
+	height: 86%;
+    width: 15%;
+    background: url(../imagenes/flecha_azulder.png) no-repeat center;
+    background-size: auto 55%;
+    margin-top: 1%;
+    float: left;
+    /* margin-right: 80%; */
+}
+
+.contenedorLimites{
+	text-align: center;
+	width: 10%;
+	height: auto;
+	font-size: 0.6rem;
+	color: #19B3E9; 
+	float: left;
+	background: no-repeat center;
+	background-size: auto 100%; 
+}
+
+ @media screen and (min-width: 700px) {
+	.contenedorLimites{
+		margin-top: 3%;
+	}
+ }
+ @media screen and (max-width: 700px) {
+	.contenedorLimites{
+		margin-top: 5%;
+	}
+ }
+   
+
+.ui-slider-horizontal{
+	margin-top: 0 !important; 
+	height:5px !important;
+	background: #BBE1ED !important;
+	-moz-box-shadow: inset 0 0 0 0 #000000 !important;
+	-webkit-box-shadow: inset 0 0 0 0 #000000 !important;
+	box-shadow: inset 0 0 0 0 #000000 !important;
+	border: none !important; 
+	width: 90% !important;
+	margin-left: -1% !important; 
+}
+
+.ui-slider .ui-slider-range{
+	background-color: #B6134E !important;
+}
+
+.ui-slider-horizontal .ui-slider-handle{
+	background: #B6134E !important;
+	height: 15px !important; 
+	width: 15px !important;
+	border-radius: 7px !important;
+	cursor: pointer !important;
+}
+
+.botonesFiltros{
+	width: 95%;
+	height: 60px;
+	background-color: #B6134E;
+	/*display: flex;*/
+	margin-top: 20px;
+}
+.botonesFiltros:hover{
+	cursor:pointer;
+}
+	  
+.botonesFiltros p{
+	color: white !important;
+	font-size: 1rem;
+	text-align: center !important;
+	line-height:60px;
+}
+
+.seccionesFiltros{
+	width:100%;
+	height: 50px;
+	margin-bottom: 20px;
+	float: none;
+}
+.titulofiltros{
+	width: 100%;
+	height:20px;
+	font-size: 0.76rem;
+	color: #333;
+	text-align: left;
+}
+
+/**********************************************************************************************************
+									CONECTIVIDAD
+************************************************************************************************************/
+#ventanaEncuesta{
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	margin: 0;
+	background-color: rgba(88, 87, 87,0.3);
+	z-index:3000;
+	display:none;
+}
+.botonEncuestaMover{
+	width: 5%;
+    margin-left: 3%;
+	margin-top: 15px;
+    height: 30px;
+    color: white;
+    float: left;
+    background-color: #52B8DA;
+    border-radius: 13px;
+}
+.botonEncuestaMover:hover{
+	cursor:pointer;
+}
+.botonEncuestaMover p{
+	font-weight: bold;
+    text-align: center;
+    font-size: 1.3rem;
+    color: white;
+    margin-top: 0px;
+}
+
+#encuestaMovil{
+	width:70%;
+	height:auto;
+	margin: 15px 0 40px 5%;
+	float:left;
+}
+
+#encuestaMovil p{
+	font-weight: bold;
+    color: #333;
+	margin-top:0;
+}
+
+#contenedorEncuesta{
+	width: 80%;
+    height: auto;
+    margin-top: 12.5%;
+	margin-left: 10%;
+    border-radius: 8px;
+    background-color: white;
+    z-index: 3000;
+    position: absolute;
+	display:none;
+}
+
+#tituloConectividad{
+	width: 74%;
+    height: 40px;
+    margin:2% 13% 2% 13%;
+    display: flex;
+}
+#iconoConectividad{
+	width: 10%;
+	height:100%;
+	background: url(../imagenes/conectividad.png) no-repeat center;
+	background-size: auto 90%;
+	float:left;
+	margin: auto;
+}
+
+#tituloConectividad h1{
+	margin:auto;
+	color: #52B8DA;
+	font-size: 1.1rem
+}
+
+#loginMovil{
+	width:80%;
+	height: auto;
+	display:none;
+	margin: 5% 0 0 10%;
+}
+#contenedorEncuesta label{
+	font-size: 0.9rem;
+    color: #222;
+	display: inline-block;
+	font-weight: normal;
+}
+
+#contenedorEncuesta input[type="text"]{
+	height: 30px !important;
+}
+#contenedorEncuesta  input[type="radio"] {
+	height: 15px !important;
+}
+#contenedorEncuesta  input[type="radio"]:hover {
+	cursor: pointer;
+}
+#introduccion a{
+	color: #3AB8DA;
+	text-decoration: underline;
+}
+#introduccion a:hover{
+	cursor: pointer;
+}
+#lugarPregunta{
+    position: absolute;
+    bottom: 2%;
+    right: 3%;
+    font-size: 0.9rem;
+}
+
+.imagenRedesSociales{
+	width: 60px;
+	height: 60px;
+	margin-left: 40%;
+	background: url(../imagenes/facebook1.png) no-repeat center;
+	background-size: auto 100%;
+	border-radius: 10px;
+	
+}
+.encuestaOculta{
+	display: none;
+}
+
+.encuestaOculta2{
+	display: none;
+}
+
+#divFavoritos{
+	width: 80%;
+	height: 90%;
+	display: none; 
+	margin: 40px 0 0 10%;
+    overflow-y: auto;
+}
+
+#divFavoritos h1{
+	font-size: 1.3rem;
+	color: #52B8DA;
+}
+
+#favoritosUsuario{
+	width: 100%;
+	height: auto;
+	overflow: hidden;
+	overflow-y: scroll;
+}
+
+
+#sliderCerca  input[type=range]:focus {
+  outline: none; /* Removes the blue border. You should probably do some kind of focus styling for accessibility reasons though. */
+}
+#sliderCerca input[type=range]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    border: none;
+    height: 16px;
+    width: 16px;
+    border-radius: 50%;
+    background: #B6134E;
+    margin-top: -4px;
+}
+
+
+/* All the same stuff for Firefox */
+#sliderCerca input[type=range]::-moz-range-thumb {
+  height: 16px;
+  width: 16px;
+  border-radius: 50%;
+  border:none;
+  background: #B6134E;
+  cursor: pointer;
+}
+
+
+
+/* All the same stuff for IE */
+#sliderCerca input[type=range]::-ms-thumb {
+  height: 20px;
+  width: 18px;
+  border-radius: 6px;
+  border:none;
+  background: #B6134E;
+  cursor: pointer;
+}
+
+#sliderCerca input[type=range]::-webkit-slider-runnable-track {
+  width: 100%;
+  height: 20%;
+  cursor: pointer;
+  background: #BBE1ED;
+  border-radius: 1.3px;
+}
+
+#sliderCerca input[type=range]:focus::-webkit-slider-runnable-track {
+  background: #BBE1ED;
+}
+
+#sliderCerca input[type=range]::-moz-range-track {
+  width: 100%;
+  height: 20%;
+  cursor: pointer;
+  background: #BBE1ED;
+  border-radius: 1.3px;
+}
+
+#sliderCerca input[type=range]::-ms-track {
+	width: 100%;
+	height: 20%;
+	cursor: pointer;
+	background: #BBE1ED;
+	border-color: transparent;
+}
+
+.nombresFuncion{
+	text-align:center; 
+	display: none;
+	margin-bottom: 3px;
+	margin-top: 7px;
+}
+
+.inputTransporte{
+	 style="cursor: pointer;
+	 width: 75%;
+	 height: 40px;
+	 margin-left: 5%;
+	 margin-top: 5%;
+}
+
+@media screen and (min-width: 700px) {
+	#hasta_distancia{
+		margin: 3% 0 0 5%;
+	}
+}
+
+@media screen and (min-width: 700px) {
+	#hasta_distancia{
+		margin: 2% 0 0 5%;
+	}
+}
+ #BotonesIsocrona{
+	height: 70px;
+	width: 66%;
+ }
+ 
+ @media screen and (min-width: 700px) {
+	 #BotonesIsocrona{
+		margin-left: 30%;
+		margin-top: 3%;
+	 }
+ }
+ @media screen and (max-width: 700px) {
+	 #BotonesIsocrona{
+		margin-left: 0%;
+		margin-top: 0%;
+	 }
+ }
